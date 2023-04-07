@@ -19,9 +19,6 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "address", nullable = false , unique = true)
     private String address;
 

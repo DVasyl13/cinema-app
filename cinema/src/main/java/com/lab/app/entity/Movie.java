@@ -1,6 +1,6 @@
 package com.lab.app.entity;
 
-import com.lab.app.enums.Genre;
+import com.lab.app.entity.util.enums.Genre;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,9 +13,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "movie")
-@Getter
-@Setter
-@ToString
+@Getter @Setter
+@ToString(exclude = "showtimeList")
 @NoArgsConstructor
 public class Movie {
     @Id

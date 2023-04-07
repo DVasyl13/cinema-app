@@ -2,7 +2,7 @@ package com.lab.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lab.app.entity.util.SeatID;
-import com.lab.app.enums.SeatType;
+import com.lab.app.entity.util.enums.SeatType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
