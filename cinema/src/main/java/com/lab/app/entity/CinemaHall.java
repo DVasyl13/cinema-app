@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "screen")
+@Table(name = "cinema_hall")
 @Getter @Setter
 @ToString
 @NoArgsConstructor
@@ -20,14 +20,8 @@ public class CinemaHall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "capacity", nullable = false)
     private Integer capacity;
-
-    @Column(name = "format", nullable = false)
-    private Format format;
 
     @OneToMany(mappedBy = "cinemaHall", orphanRemoval = true)
     private List<Showtime> showtimeList = new ArrayList<>();;

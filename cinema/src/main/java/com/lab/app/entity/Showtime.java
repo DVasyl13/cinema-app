@@ -1,5 +1,6 @@
 package com.lab.app.entity;
 
+import com.lab.app.entity.util.enums.Format;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,9 @@ public class Showtime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "format", nullable = false)
+    private Format format;
 
     @Column(name = "start_time", nullable = false)
     private Date startTime;
