@@ -1,27 +1,54 @@
 package com.lab.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "booking")
 @Getter @Setter
-@ToString
+@ToString(exclude = {"user", "showtime"})
 @NoArgsConstructor
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "number_of_tickets")
-    private Integer numberOfTickets;
+    @Column(name = "total_price", nullable = false)
+    private Double totalPrice;
 
-    @Column(name = "seats_numbers")
-    private String seatsNumbers; //[S1,S2,S5,A6] or [12,13,14,15,22]
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Seat> seats = new ArrayList<>();
 
-    //TODO: connection to User Table
-    //      connection to Showtime Table
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JsonBackReference
+    private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "showtime_id", referencedColumnName = "id",
+                        insertable = false, updatable = false)
+    private Showtime showtime;
+
+    public Booking(Double totalPrice, User user) {
+        this.totalPrice = totalPrice;
+        this.user = user;
+        // ?? seats ?? showtime
+    }
+    public void addSeat(Seat seat) {
+        seat.setBooking(this);
+        seats.add(seat);
+    }
+    public void removeSeat(Seat seat) {
+        seat.setBooking(null);
+        seats.remove(seat);
+    }
 }

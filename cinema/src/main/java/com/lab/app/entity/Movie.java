@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "movie")
@@ -44,5 +45,11 @@ public class Movie {
     @Column(name = "genre")
     private Genre genre;
 
-    //TODO: connection to Showtime Table
+    @OneToMany(mappedBy = "movie", orphanRemoval = true)
+    private List<Showtime> showtimeList;
+
+    public void addShowtime(Showtime showtime) {
+        showtime.setMovie(this);
+        showtimeList.add(showtime);
+    }
 }

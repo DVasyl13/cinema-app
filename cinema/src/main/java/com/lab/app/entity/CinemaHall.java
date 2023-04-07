@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Table(name = "screen")
 @Getter @Setter
 @ToString
 @NoArgsConstructor
-public class Screen {
+public class CinemaHall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,7 +28,18 @@ public class Screen {
     @Column(name = "format", nullable = false)
     private Format format;
 
-    //TODO: connection to Showtime Table
-    //      connection to Cinema Table
+    @OneToMany(mappedBy = "cinemaHall", orphanRemoval = true)
+    private List<Showtime> showtimeList;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cinema_id", referencedColumnName = "id",
+            insertable = false, updatable = false,
+            foreignKey = @ForeignKey(name = "FK_cinemaHall_cinema"))
+    private Cinema cinema;
+
+    public void addShowtime(Showtime showtime) {
+        showtime.setCinemaHall(this);
+        showtimeList.add(showtime);
+    }
 
 }

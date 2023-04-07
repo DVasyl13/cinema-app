@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Table(name = "cinema")
 @Getter @Setter
@@ -28,5 +30,7 @@ public class Cinema {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    //TODO: connection to Screen table
+    @OneToMany(mappedBy = "cinema", orphanRemoval = true)
+    private List<CinemaHall> cinemaHallList;
+
 }
