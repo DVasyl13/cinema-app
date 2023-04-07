@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,7 +30,7 @@ public class CinemaHall {
     private Format format;
 
     @OneToMany(mappedBy = "cinemaHall", orphanRemoval = true)
-    private List<Showtime> showtimeList;
+    private List<Showtime> showtimeList = new ArrayList<>();;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cinema_id", referencedColumnName = "id",

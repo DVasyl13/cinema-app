@@ -26,7 +26,8 @@ public class Seat {
 
     @ManyToOne
     @JoinColumn(name = "booking_id", referencedColumnName = "id",
-                insertable = false, updatable = false)
+                insertable = false, updatable = false,
+                foreignKey = @ForeignKey(name = "FK_seat_booking"))
     @JsonBackReference
     private Booking booking;
 

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class Movie {
     private Genre genre;
 
     @OneToMany(mappedBy = "movie", orphanRemoval = true)
-    private List<Showtime> showtimeList;
+    private List<Showtime> showtimeList = new ArrayList<>();;
 
     public void addShowtime(Showtime showtime) {
         showtime.setMovie(this);

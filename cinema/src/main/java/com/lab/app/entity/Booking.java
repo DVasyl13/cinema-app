@@ -29,13 +29,15 @@ public class Booking {
     private List<Seat> seats = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false,
+                foreignKey = @ForeignKey(name = "FK_booking_user"))
     @JsonBackReference
     private User user;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "showtime_id", referencedColumnName = "id",
-                        insertable = false, updatable = false)
+                        insertable = false, updatable = false,
+            foreignKey = @ForeignKey(name = "FK_booking_showtime"))
     private Showtime showtime;
 
     public Booking(Double totalPrice, User user) {
