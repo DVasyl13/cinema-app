@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cinema")
+@RequestMapping("/api/v1/cinema")
 public class CinemaController {
 
     private final CinemaRepository repository;
