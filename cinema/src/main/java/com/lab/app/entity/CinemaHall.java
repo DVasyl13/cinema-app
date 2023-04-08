@@ -1,6 +1,5 @@
 package com.lab.app.entity;
 
-import com.lab.app.entity.util.enums.Format;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
