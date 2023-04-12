@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/loginpopup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -33,12 +34,23 @@
                 <li>ПРО НАС</li>
             </ul>
         </nav>
-        <button>Увійти</button>
+        <button id="loginBtn">Увійти</button>
     </header>
 
-    <script src="js/script.js"></script>
+    
+    <div id="backgroundPopup"></div>
+    <div class="loginPopup">
+        <form onsubmit="submitContact(event);return false" id="formPopup">
+            <h2>Вхід</h2>
+            <input type="email" name="email" id="email">
+            <input type="password" name="password" id="password">
+            <input id="loginPopupBtn" type="submit" value="Увійти">
+            <button id="regPopupBtn">Регістрація</button>
+        </form>
+    </div>
+    
     <div class="movieWrapper">
-
+        
         <article class="movieFrame">
             <h2>Мавка. Лісова пісня</h2>
             <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
@@ -83,5 +95,7 @@
             </button>
         </article>
     </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
