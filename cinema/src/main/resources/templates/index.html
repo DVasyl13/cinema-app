@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/loginpopup.css">
+    <link rel="stylesheet" href="css/popup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
 
     <header>
         <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png" alt="logo">
-            
     <div class="dropdown">
         <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
         <div class="dropdown-content">
@@ -25,7 +24,6 @@
         <a href="#">Львів, ТРЦ Мегаполіс</a>
     </div>
   </div>
-
         <nav>
             <ul>
                 <li>СКОРО</li>
@@ -36,19 +34,30 @@
         </nav>
         <button id="loginBtn">Увійти</button>
     </header>
-
     
     <div id="backgroundPopup"></div>
     <div class="loginPopup">
-        <form onsubmit="submitContact(event);return false" id="formPopup">
+        <form onsubmit="submitContact(event)" id="formPopup">
             <h2>Вхід</h2>
-            <input type="email" name="email" id="email">
-            <input type="password" name="password" id="password">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="Пароль">
             <input id="loginPopupBtn" type="submit" value="Увійти">
-            <button id="regPopupBtn">Регістрація</button>
+        </form>
+        <button id="regPopupBtn">Реєстрація</button>
+    </div>
+
+    <div class="regPopup">
+        <form id="formPopup">
+            <h2>Реєстрація</h2>
+            <input type="text" placeholder="Імʼя">
+            <input type="text" placeholder="Прізвище">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Пароль">
+            <input type="text" placeholder="Підтвердження пароля">
+            <button id="createAccBtn">Створити</button>
         </form>
     </div>
-    
+
     <div class="movieWrapper">
         
         <article class="movieFrame">
