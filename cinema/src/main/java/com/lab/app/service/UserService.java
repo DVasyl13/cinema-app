@@ -24,8 +24,8 @@ public class UserService {
     }
 
     @Transactional
-    public boolean authenticateUser(String username, String password) {
-        User user = userRepository.findUserByUserName(username);
+    public boolean authenticateUser(String email, String password) {
+        User user = userRepository.findUserByEmail(email);
         return user != null && passwordEncoder.matches(password, user.getPassword());
     }
 

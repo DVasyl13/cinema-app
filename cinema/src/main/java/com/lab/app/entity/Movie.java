@@ -1,15 +1,12 @@
 package com.lab.app.entity;
 
-import com.lab.app.entity.util.enums.Genre;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "movie")
@@ -42,9 +39,8 @@ public class Movie {
     @Column(name = "release_Date")
     private Date releaseDate;
 
-    @Column(name = "genre")
-    private Genre genre;
-
+    @ManyToMany(mappedBy = "movies")
+    private Set<Genre> genres = new HashSet<>();
     @OneToMany(mappedBy = "movie", orphanRemoval = true)
     private List<Showtime> showtimeList = new ArrayList<>();;
 

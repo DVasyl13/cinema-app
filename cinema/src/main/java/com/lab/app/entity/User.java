@@ -21,8 +21,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_name", nullable = false, unique = true)
-    private String userName;
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "surname", nullable = false)
+    private String surname;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -35,15 +38,16 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Booking> bookings = new ArrayList<>();;
+    private List<Booking> bookings = new ArrayList<>();
 
     public void addBooking(Booking booking) {
         booking.setUser(this);
         bookings.add(booking);
     }
 
-    public User(String userName, String password, String email) {
-        this.userName = userName;
+    public User(String name, String surname, String password, String email) {
+        this.name = name;
+        this.surname = surname;
         this.password = password;
         this.email = email;
         this.role = Role.CUSTOMER;
