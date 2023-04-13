@@ -9,5 +9,4 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class WebController {
 
-
 }
