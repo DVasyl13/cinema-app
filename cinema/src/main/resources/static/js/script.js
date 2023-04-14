@@ -24,11 +24,40 @@ const submitContact = (event) => {
 
     let feadBack = Object.fromEntries(new FormData(feadbackForm));
 
-    console.log(feadBack);
+    createNewUser(feadBack);
 }
 
 const controlDisapearingBG = (flag) =>{
     (flag) 
     ? shadowBG.style.display = "block" 
     : shadowBG.style.display = "none";
+}
+
+const createNewUser = (data) => {    
+
+    console.log(data);
+
+    if (data["Password"] != data["DupPassword"]) {
+        return;
+    }
+
+    fetch('/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }

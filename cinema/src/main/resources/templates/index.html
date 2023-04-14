@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/header.css">
-    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -15,14 +15,14 @@
 <body>
     <header>
         <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png" alt="logo">
-    <div class="dropdown">
-        <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
-        <div class="dropdown-content">
-        <a href="#">Львів, ТРЦ Мегаполіс</a>
-        <a href="#">Львів, ТРЦ Мегаполіс</a>
-        <a href="#">Львів, ТРЦ Мегаполіс</a>
-    </div>
-  </div>
+        <div class="dropdown">
+            <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
+            <div class="dropdown-content">
+            <a href="#">Львів, ТРЦ Мегаполіс</a>
+            <a href="#">Львів, ТРЦ Мегаполіс</a>
+            <a href="#">Львів, ТРЦ Мегаполіс</a>
+            </div>
+        </div>
         <nav>
             <ul>
                 <li>СКОРО</li>
@@ -36,7 +36,7 @@
     
     <div id="backgroundPopup"></div>
     <div class="loginPopup">
-        <form onsubmit="submitContact(event)" id="formPopup">
+        <form id="formPopup" onsubmit="submitContact(event);return false;">
             <h2>Вхід</h2>
             <input type="email" name="email" id="email" placeholder="Email">
             <input type="password" name="password" id="password" placeholder="Пароль">
@@ -46,19 +46,18 @@
     </div>
 
     <div class="regPopup">
-        <form id="formPopup">
+        <form id="formPopup" onsubmit="submitContact(event);return false;">
             <h2>Реєстрація</h2>
-            <input type="text" placeholder="Імʼя">
-            <input type="text" placeholder="Прізвище">
-            <input type="email" placeholder="Email">
-            <input type="text" placeholder="Пароль">
-            <input type="text" placeholder="Підтвердження пароля">
-            <button id="createAccBtn">Створити</button>
+            <input type="text" name="Name" id="regName" placeholder="Імʼя">
+            <input type="text" name="Surname" id="regSurName" placeholder="Прізвище">
+            <input type="email" name="Email" id="regEmail" placeholder="Email">
+            <input type="text" name="Password"  id="regPassword" placeholder="Пароль">
+            <input type="text" name="DupPassword" id="regDupPass" placeholder="Підтвердження пароля">
+            <input type="submit" id="createAccBtn">Створити</button>
         </form>
     </div>
 
     <div class="movieWrapper">
-        
         <article class="movieFrame">
             <h2>Мавка. Лісова пісня</h2>
             <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
@@ -104,6 +103,7 @@
         </article>
     </div>
 
-    <script src="/js/script.js"></script>
+    <script src="../static/js/script.js"></script>
+    <script src="../static/js/contact_service.js"></script>
 </body>
 </html>
