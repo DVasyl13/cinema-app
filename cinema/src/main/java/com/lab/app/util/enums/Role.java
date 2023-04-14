@@ -1,4 +1,4 @@
-package com.lab.app.entity.util.enums;
+package com.lab.app.util.enums;
 
 public enum Role {
     ADMIN,

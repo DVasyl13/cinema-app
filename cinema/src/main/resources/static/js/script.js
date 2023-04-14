@@ -18,19 +18,19 @@ shadowBG.addEventListener('click', ()=>{
     controlDisapearingBG(0);
 })
 
-const submitContact = (event) => {
+const controlDisapearingBG = (flag) =>{
+    (flag)
+    ? shadowBG.style.display = "block"
+    : shadowBG.style.display = "none";
+}
+
+const resisterNewUser = (event) => {
 
     let feadbackForm = event.target;
 
     let feadBack = Object.fromEntries(new FormData(feadbackForm));
 
     createNewUser(feadBack);
-}
-
-const controlDisapearingBG = (flag) =>{
-    (flag) 
-    ? shadowBG.style.display = "block" 
-    : shadowBG.style.display = "none";
 }
 
 const createNewUser = (data) => {    
@@ -41,7 +41,40 @@ const createNewUser = (data) => {
         return;
     }
 
-    fetch('/', {
+    fetch('/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+const loginUser = (event) => {
+
+    let feadbackForm = event.target;
+
+    let feadBack = Object.fromEntries(new FormData(feadbackForm));
+
+    verifyUser(feadBack);
+}
+
+const verifyUser = (data) => {
+    console.log(data);
+
+    fetch('/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

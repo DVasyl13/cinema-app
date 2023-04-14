@@ -1,7 +1,7 @@
 package com.lab.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.lab.app.entity.util.enums.Role;
+import com.lab.app.util.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

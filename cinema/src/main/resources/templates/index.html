@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
     
     <div id="backgroundPopup"></div>
     <div class="loginPopup">
-        <form id="formPopup" onsubmit="submitContact(event);return false;">
+        <form id="formPopup" onsubmit="loginUser(event);return false;">
             <h2>Вхід</h2>
             <input type="email" name="email" id="email" placeholder="Email">
             <input type="password" name="password" id="password" placeholder="Пароль">
@@ -46,13 +46,13 @@
     </div>
 
     <div class="regPopup">
-        <form id="formPopup" onsubmit="submitContact(event);return false;">
+        <form id="formPopup" onsubmit="resisterNewUser(event);return false;">
             <h2>Реєстрація</h2>
-            <input type="text" name="Name" id="regName" placeholder="Імʼя">
-            <input type="text" name="Surname" id="regSurName" placeholder="Прізвище">
-            <input type="email" name="Email" id="regEmail" placeholder="Email">
-            <input type="text" name="Password"  id="regPassword" placeholder="Пароль">
-            <input type="text" name="DupPassword" id="regDupPass" placeholder="Підтвердження пароля">
+            <input type="text" name="name" id="regName" placeholder="Імʼя">
+            <input type="text" name="surname" id="regSurName" placeholder="Прізвище">
+            <input type="email" name="email" id="regEmail" placeholder="Email">
+            <input type="text" name="password"  id="regPassword" placeholder="Пароль">
+            <input type="text" name="duppassword" id="regDupPass" placeholder="Підтвердження пароля">
             <input type="submit" id="createAccBtn">Створити</button>
         </form>
     </div>
@@ -103,7 +103,7 @@
         </article>
     </div>
 
-    <script src="../static/js/script.js"></script>
-    <script src="../static/js/contact_service.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/contact_service.js"></script>
 </body>
 </html>
