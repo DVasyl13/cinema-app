@@ -1,5 +1,7 @@
 package com.lab.app.service;
 
+import com.lab.app.controller.exception.UserAlreadyExistException;
+import com.lab.app.controller.exception.UserNotFoundException;
 import com.lab.app.dto.NewUserSubmission;
 import com.lab.app.entity.User;
 import com.lab.app.repository.UserRepository;
@@ -30,18 +32,23 @@ public class UserService {
         user.setPassword(encodedPassword);
 
         if (isEmailAlreadyInUse(user.getEmail())) {
-            return false;
+            throw new UserAlreadyExistException(newUser.email());
         }
         else {
             userRepository.save(user);
+            return true;
         }
-        return true;
     }
 
     @Transactional
     public boolean authenticateUser(String email, String password) {
         User user = userRepository.findUserByEmail(email);
-        return user != null && passwordEncoder.matches(password, user.getPassword());
+        if (user != null && passwordEncoder.matches(password, user.getPassword())){
+            return true;
+        }
+        else {
+            throw new UserNotFoundException(email);
+        }
     }
 
     /**
