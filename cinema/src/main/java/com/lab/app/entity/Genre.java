@@ -1,5 +1,6 @@
 package com.lab.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Genre {
     private String name;
 
     @ManyToMany(cascade = { CascadeType.ALL })
+    @JsonBackReference
     @JoinTable(name = "movie_genre", joinColumns = { @JoinColumn(name = "genre_id") }
             , inverseJoinColumns =  { @JoinColumn(name = "movie_id") }
             , foreignKey = @ForeignKey(name = "FK_genre_movie"))

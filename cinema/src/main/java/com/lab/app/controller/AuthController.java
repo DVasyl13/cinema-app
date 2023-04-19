@@ -33,7 +33,6 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<Object> registration(@RequestBody NewUserSubmission userSubmission, HttpSession session) {
-        System.out.println(userSubmission);
         User user = userService.saveUser(userSubmission);
         session.setAttribute("email", userSubmission.email()); // може спрацює
         session.setAttribute("password", userSubmission.password());

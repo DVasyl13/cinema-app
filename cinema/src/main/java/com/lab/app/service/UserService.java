@@ -23,10 +23,7 @@ public class UserService {
 
     @Transactional
     public User saveUser(NewUserSubmission newUser) {
-        User user = new User( newUser.name(),
-                            newUser.surname(),
-                            newUser.password(),
-                            newUser.email());
+        User user = new User(newUser.name(), newUser.surname(), newUser.password(), newUser.email());
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
