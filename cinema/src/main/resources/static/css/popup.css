@@ -10,6 +10,7 @@
     border-radius: 22px;
     text-align: center;
     display: none;
+    z-index: 999;
 }
 
 .regPopup{
@@ -24,6 +25,7 @@
     border-radius: 22px;
     text-align: center;
     display: none;
+    z-index: 999;
 }
 
 #formPopup{
@@ -65,6 +67,7 @@
     height: 120vh;
     background-color: rgba(0, 0, 0, 0.6);
     display: none;
+    z-index: 988;
 }
 
 #createAccBtn{
