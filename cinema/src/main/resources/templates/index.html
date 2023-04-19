@@ -35,73 +35,51 @@
     </header>
     
     <div id="backgroundPopup"></div>
-    <div class="loginPopup">
-        <form id="formPopup" onsubmit="submitContact(event);return false;">
-            <h2>Вхід</h2>
-            <input type="email" name="email" id="email" placeholder="Email">
-            <input type="password" name="password" id="password" placeholder="Пароль">
-            <input id="loginPopupBtn" type="submit" value="Увійти">
-        </form>
-        <button id="regPopupBtn">Реєстрація</button>
-    </div>
-
-    <div class="regPopup">
-        <form id="formPopup" onsubmit="submitContact(event);return false;">
-            <h2>Реєстрація</h2>
-            <input type="text" name="Name" id="regName" placeholder="Імʼя">
-            <input type="text" name="Surname" id="regSurName" placeholder="Прізвище">
-            <input type="email" name="Email" id="regEmail" placeholder="Email">
-            <input type="text" name="Password"  id="regPassword" placeholder="Пароль">
-            <input type="text" name="DupPassword" id="regDupPass" placeholder="Підтвердження пароля">
-            <input type="submit" id="createAccBtn">Створити</button>
-        </form>
-    </div>
-
-    <div class="movieWrapper">
+        <div class="loginPopup">
+            <form id="formPopup" onsubmit="submitContact(event);return false;">
+                <h2>Вхід</h2>
+                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="password" name="password" id="password" placeholder="Пароль">
+                <input id="loginPopupBtn" type="submit" value="Увійти">
+            </form>
+            <button id="regPopupBtn">Реєстрація</button>
+        </div>
+        
+        <div class="regPopup">
+            <form id="formPopup" onsubmit="submitContact(event);return false;">
+                <h2>Реєстрація</h2>
+                <input type="text" name="Name" id="regName" placeholder="Імʼя">
+                <input type="text" name="Surname" id="regSurName" placeholder="Прізвище">
+                <input type="email" name="Email" id="regEmail" placeholder="Email">
+                <input type="text" name="Password"  id="regPassword" placeholder="Пароль">
+                <input type="text" name="DupPassword" id="regDupPass" placeholder="Підтвердження пароля">
+                <input type="submit" id="createAccBtn">Створити</button>
+            </form>
+        </div>
+        
+    <main>
+        <div class="bigFrame">
+            <img src="https://www.kinolumiere.com/uploads/films/1681206161_Renfield_1920x800_Lumiere.jpg" alt="movie image">
+            <button>Деталі</button>
+        </div>
+        <div class="movieWrapper">
         <article class="movieFrame">
-            <h2>Мавка. Лісова пісня</h2>
             <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
-            <p><span>0+ </span> Комедія, Фентезі, Анімація</p>
-            <h5>Сьогодні, <time>08 квітня</time></h5>
-            <button class="movieBtn">
-                <h4>18:00</h4>
-                <p><b>160</b>uah</p>
-            </button>
         </article>
-
+        
         <article class="movieFrame">
-            <h2>Мавка. Лісова пісня</h2>
-            <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
-            <p><span>0+ </span> Комедія, Фентезі, Анімація</p>
-            <h5>Сьогодні, <time>08 квітня</time></h5>
-            <button class="movieBtn">
-                <h4>18:00</h4>
-                <p><b>160</b>uah</p>
-            </button>
+            <img src="https://miromax.film/images/cinema/ky1-531.jpg" alt="movie image">
         </article>
-
+        
         <article class="movieFrame">
-            <h2>Мавка. Лісова пісня</h2>
-            <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
-            <p><span>0+ </span> Комедія, Фентезі, Анімація</p>
-            <h5>Сьогодні, <time>08 квітня</time></h5>
-            <button class="movieBtn">
-                <h4>18:00</h4>
-                <p><b>160</b>uah</p>
-            </button>
+            <img src="https://miromax.film/images/cinema/ky1-527.jpg" alt="movie image">
         </article>
-
+        
         <article class="movieFrame">
-            <h2>Мавка. Лісова пісня</h2>
-            <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
-            <p><span>0+ </span> Комедія, Фентезі, Анімація</p>
-            <h5>Сьогодні, <time>08 квітня</time></h5>
-            <button class="movieBtn">
-                <h4>18:00</h4>
-                <p><b>160</b>uah</p>
-            </button>
+            <img src="https://miromax.film/images/cinema/ky1-525.jpg" alt="movie image">
         </article>
     </div>
+    </main>
 
     <script src="../static/js/script.js"></script>
     <script src="../static/js/contact_service.js"></script>

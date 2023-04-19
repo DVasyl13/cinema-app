@@ -4,24 +4,30 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body{
+  background-color: #000;
+}
+
 .movieWrapper{
+    width: 1400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 2rem;
+    gap: 30px;
+    margin: 0 auto;
 }
 
 .movieFrame{
-    padding: 2rem;
-    background-color: wheat;
-    width: max-content;
-    height: fit-content;
+    width: 260px;
+    height: 320px;
     border-radius: 30px;
-}
-
-.movieFrame img{
-    height: 60%;
-}
+  }
+  
+  .movieFrame img{
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+  }
 
 .movieBtn{
     background-color: white;
@@ -32,7 +38,24 @@
     box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.2);
 }
 
+.bigFrame{
+  position: relative;
+  height: fit-content;
+}
 
+.bigFrame img{
+  width: 100%;  
+}
+
+.bigFrame button{
+  position: absolute;
+  bottom: 30%;
+  right: 10%;
+  background-color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 46px;
+}
 
 .dropbtn {
     background-color: black;
