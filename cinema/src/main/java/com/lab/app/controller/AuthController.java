@@ -1,5 +1,7 @@
 package com.lab.app.controller;
 
+import com.lab.app.controller.exception.UserAlreadyExistException;
+import com.lab.app.controller.exception.UserNotFoundException;
 import com.lab.app.dto.NewUserSubmission;
 import com.lab.app.dto.UserSubmission;
 import com.lab.app.service.UserService;
@@ -21,27 +23,17 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody UserSubmission userSubmission, HttpSession session) {
-        if (userService.authenticateUser(userSubmission.email(), userSubmission.password())) {
-            session.setAttribute("email", userSubmission.email()); // може спрацює
-            session.setAttribute("password", userSubmission.password());
-            return new ResponseEntity<>("Вхід успішний", HttpStatus.OK);
-        }
-        else {
-            return new ResponseEntity<>("Такого користувача не існує", HttpStatus.FORBIDDEN);
-        }
+        userService.authenticateUser(userSubmission.email(), userSubmission.password());
+        session.setAttribute("email", userSubmission.email()); // може спрацює
+        session.setAttribute("password", userSubmission.password());
+        return new ResponseEntity<>("Login is successful", HttpStatus.OK);
     }
 
     @PostMapping("/register")
     public ResponseEntity<String> registration(@RequestBody NewUserSubmission userSubmission, HttpSession session) {
-        boolean isCreated = userService.saveUser(userSubmission);
-
-        if (isCreated) {
-            session.setAttribute("email", userSubmission.email()); // може спрацює
-            session.setAttribute("password", userSubmission.password());
-            return new ResponseEntity<>("Аккаунт створено", HttpStatus.OK);
-        }
-        else {
-            return new ResponseEntity<>("Цей email вже зайнято", HttpStatus.FORBIDDEN);
-        }
+        userService.saveUser(userSubmission);
+        session.setAttribute("email", userSubmission.email()); // може спрацює
+        session.setAttribute("password", userSubmission.password());
+        return new ResponseEntity<>("Account has been created", HttpStatus.OK);
     }
 }
