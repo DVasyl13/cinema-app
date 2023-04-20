@@ -11,7 +11,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Override
     @Query("select m " +
             "from Movie m" +
-            " left join fetch Genre g" +
-            " on m.id=g.id")
+            " left join fetch m.genres g" +
+            " left join fetch m.showtimeList sh" +
+            " left join fetch sh.cinemaHall ch")
     List<Movie> findAll();
 }
