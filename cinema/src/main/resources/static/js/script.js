@@ -1,21 +1,41 @@
-var loginBtn = document.getElementById("loginBtn");
-var shadowBG = document.getElementById("backgroundPopup");
-var regBtn = document.getElementById("regPopupBtn");
+const loginFormPopUpButton = document.getElementById("login-form-button");
 
+const loginBtn = document.getElementById("main-login-button");
+const regBtn = document.getElementById("registration-popup-button");
+
+const shadowBG = document.getElementById("background-popup");
+
+const closeLoginFormBtn  = document.getElementById("close-login-button");
+const closeRegistrationFormBtn  = document.getElementById("close-registration-button");
 loginBtn.addEventListener('click', ()=>{
-    document.querySelector(".loginPopup").style.display = "block";
+    document.querySelector(".login-popup").classList.add("active");
+    document.querySelector(".registration-popup").classList.remove("active");
     controlDisapearingBG(1);
 })
 
 regBtn.addEventListener('click', ()=>{
-    document.querySelector(".loginPopup").style.display = "none";
-    document.querySelector(".regPopup").style.display = "block";
+    document.querySelector(".login-popup").classList.remove("active");
+    document.querySelector(".registration-popup").classList.add("active");
 })
-
+closeLoginFormBtn.addEventListener('click', ()=>{
+    document.querySelector(".login-popup").classList.remove("active");
+    document.querySelector(".registration-popup").classList.remove("active");
+    controlDisapearingBG(0)
+})
+closeRegistrationFormBtn.addEventListener('click', ()=>{
+    document.querySelector(".login-popup").classList.remove("active");
+    document.querySelector(".registration-popup").classList.remove("active");
+    controlDisapearingBG(0)
+})
 shadowBG.addEventListener('click', ()=>{
-    document.querySelector(".loginPopup").style.display = "none";
-    document.querySelector(".regPopup").style.display = "none";
-    controlDisapearingBG(0);
+    document.querySelector(".login-popup").classList.remove("active");
+    document.querySelector(".registration-popup").classList.remove("active");
+    controlDisapearingBG(0)
+})
+loginFormPopUpButton.addEventListener('click', ()=>{
+    document.querySelector(".login-popup").classList.add("active");
+    document.querySelector(".registration-popup").classList.remove("active");
+    controlDisapearingBG(1);
 })
 
 const controlDisapearingBG = (flag) =>{
@@ -33,11 +53,11 @@ const resisterNewUser = (event) => {
     createNewUser(feadBack);
 }
 
-const createNewUser = (data) => {    
+const createNewUser = (data) => {
 
     console.log(data);
 
-    if (data["Password"] != data["DupPassword"]) {
+    if (data["password"] !== data["repeat-password"]) {
         return;
     }
 
