@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/img/logo.jpg">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="../static/css/header.css">
     <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
@@ -16,8 +17,9 @@
 <body>
 <div id="background-popup"></div>
 <header>
-    <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png"
-         alt="logo">
+    <a href="index.html" class="logo">
+        <img src="../static/img/logo.jpg"
+             alt="logo"></a>
     <div class="dropdown">
         <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
         <div class="dropdown-content">
@@ -58,7 +60,8 @@
         <input type="text" class="input-field" name="surname" id="registration-surname" placeholder="Прізвище">
         <input type="email" class="input-field" name="email" id="registration-email" placeholder="Email">
         <input type="password" class="input-field" name="password" id="registration-password" placeholder="Пароль">
-        <input type="password" class="input-field" name="repeat-password" id="repeat-password" placeholder="Підтвердження пароля">
+        <input type="password" class="input-field" name="repeat-password" id="repeat-password"
+               placeholder="Підтвердження пароля">
         <input type="submit" id="create-account-button" value="Зареєструватися">
         <button id="login-form-button"> Увійти в обліковий запис</button>
     </form>
