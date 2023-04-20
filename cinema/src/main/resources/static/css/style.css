@@ -1,14 +1,14 @@
-*, *::after, *::before{
+*, *::after, *::before {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-  background-color: #000;
+body {
+    background-color: #000;
 }
 
-.movieWrapper{
+.movie-wrapper {
     width: 1400px;
     display: flex;
     flex-wrap: wrap;
@@ -17,19 +17,20 @@ body{
     margin: 0 auto;
 }
 
-.movieFrame{
+.movie-frame {
     width: 260px;
     height: 320px;
     border-radius: 30px;
-  }
-  
-  .movieFrame img{
+}
+
+.movie-frame img {
     width: 100%;
+    border-radius: 20px;
     height: 380px;
     object-fit: cover;
-  }
+}
 
-.movieBtn{
+.movieBtn {
     background-color: white;
     border-radius: 30px;
     border: 0;
@@ -38,23 +39,23 @@ body{
     box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.2);
 }
 
-.bigFrame{
-  position: relative;
-  height: fit-content;
+.bigFrame {
+    position: relative;
+    height: fit-content;
 }
 
-.bigFrame img{
-  width: 100%;  
+.bigFrame img {
+    width: 100%;
 }
 
-.bigFrame button{
-  position: absolute;
-  bottom: 30%;
-  right: 10%;
-  background-color: #fff;
-  border: 0;
-  border-radius: 12px;
-  padding: 12px 46px;
+.bigFrame button {
+    position: absolute;
+    bottom: 30%;
+    right: 10%;
+    background-color: #fff;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 46px;
 }
 
 .dropbtn {
@@ -64,38 +65,40 @@ body{
     font-size: 16px;
     border: none;
     cursor: pointer;
-  }
-  
-  .dropdown {
+}
+
+.dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  .dropdown-content a:hover {
+}
+
+.dropdown-content a:hover {
     background-color: #f1f1f1
 }
-  
-  .dropdown:hover .dropdown-content {
+
+.dropdown:hover .dropdown-content {
     display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
+}
+
+.dropdown:hover .dropbtn {
     background-color: rgba(100, 100, 100, 0.2);
     border-radius: 0;
-  }
+}
+.login-popup i{
+}

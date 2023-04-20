@@ -7,81 +7,88 @@
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="../static/css/header.css">
     <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Cinema</title>
 </head>
 <body>
-    <header>
-        <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png" alt="logo">
-        <div class="dropdown">
-            <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
-            <div class="dropdown-content">
+<div id="background-popup"></div>
+<header>
+    <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png"
+         alt="logo">
+    <div class="dropdown">
+        <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
+        <div class="dropdown-content">
             <a href="#">Львів, ТРЦ Мегаполіс</a>
             <a href="#">Львів, ТРЦ Мегаполіс</a>
             <a href="#">Львів, ТРЦ Мегаполіс</a>
-            </div>
         </div>
-        <nav>
-            <ul>
-                <li>СКОРО</li>
-                <li>ФІЛЬМИ</li>
-                <li>РОЗКЛАД СЕАНСІВ</li>
-                <li>ПРО НАС</li>
-            </ul>
-        </nav>
-        <button id="loginBtn">Увійти</button>
-    </header>
-    
-    <div id="backgroundPopup"></div>
-        <div class="loginPopup">
-            <form id="formPopup" onsubmit="submitContact(event);return false;">
-                <h2>Вхід</h2>
-                <input type="email" name="email" id="email" placeholder="Email">
-                <input type="password" name="password" id="password" placeholder="Пароль">
-                <input id="loginPopupBtn" type="submit" value="Увійти">
-            </form>
-            <button id="regPopupBtn">Реєстрація</button>
-        </div>
-        
-        <div class="regPopup">
-            <form id="formPopup" onsubmit="submitContact(event);return false;">
-                <h2>Реєстрація</h2>
-                <input type="text" name="Name" id="regName" placeholder="Імʼя">
-                <input type="text" name="Surname" id="regSurName" placeholder="Прізвище">
-                <input type="email" name="Email" id="regEmail" placeholder="Email">
-                <input type="text" name="Password"  id="regPassword" placeholder="Пароль">
-                <input type="text" name="DupPassword" id="regDupPass" placeholder="Підтвердження пароля">
-                <input type="submit" id="createAccBtn">Створити</button>
-            </form>
-        </div>
-        
-    <main>
-        <div class="bigFrame">
-            <img src="https://www.kinolumiere.com/uploads/films/1681206161_Renfield_1920x800_Lumiere.jpg" alt="movie image">
-            <button>Деталі</button>
-        </div>
-        <div class="movieWrapper">
-        <article class="movieFrame">
+    </div>
+    <nav>
+        <ul>
+            <li>СКОРО</li>
+            <li>ФІЛЬМИ</li>
+            <li>РОЗКЛАД СЕАНСІВ</li>
+            <li>ПРО НАС</li>
+        </ul>
+    </nav>
+    <button id="main-login-button">Увійти</button>
+</header>
+<div class="login-popup">
+
+    <form id="login-form" onsubmit="loginUser(event);return false;">
+        <span class="material-icons" id="close-login-button">close</span>
+        <h2>Вхід</h2>
+        <input type="email" class="input-field" name="email" id="email" placeholder="Email">
+        <input type="password" class="input-field" name="password" id="password" placeholder="Пароль">
+        <input id="login-popup-button" type="submit" value="Увійти">
+        <button id="registration-popup-button">Реєстрація</button>
+
+    </form>
+
+</div>
+
+<div class="registration-popup">
+    <form id="registration-form" onsubmit="resisterNewUser(event);return false;">
+        <span class="material-icons" id="close-registration-button">close</span>
+        <h2>Реєстрація</h2>
+        <input type="text" class="input-field" name="name" id="registration-name" placeholder="Імʼя">
+        <input type="text" class="input-field" name="surname" id="registration-surname" placeholder="Прізвище">
+        <input type="email" class="input-field" name="email" id="registration-email" placeholder="Email">
+        <input type="password" class="input-field" name="password" id="registration-password" placeholder="Пароль">
+        <input type="password" class="input-field" name="repeat-password" id="repeat-password" placeholder="Підтвердження пароля">
+        <input type="submit" id="create-account-button" value="Зареєструватися">
+        <button id="login-form-button"> Увійти в обліковий запис</button>
+    </form>
+</div>
+
+<main>
+    <div class="bigFrame">
+        <img src="https://www.kinolumiere.com/uploads/films/1681206161_Renfield_1920x800_Lumiere.jpg" alt="movie image">
+        <button>Деталі</button>
+    </div>
+    <div class="movie-wrapper">
+        <article class="movie-frame">
             <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
         </article>
-        
-        <article class="movieFrame">
+
+        <article class="movie-frame">
             <img src="https://miromax.film/images/cinema/ky1-531.jpg" alt="movie image">
         </article>
-        
-        <article class="movieFrame">
+
+        <article class="movie-frame">
             <img src="https://miromax.film/images/cinema/ky1-527.jpg" alt="movie image">
         </article>
-        
-        <article class="movieFrame">
+
+        <article class="movie-frame">
             <img src="https://miromax.film/images/cinema/ky1-525.jpg" alt="movie image">
         </article>
     </div>
-    </main>
+</main>
 
-    <script src="../static/js/script.js"></script>
-    <script src="../static/js/contact_service.js"></script>
+<script src="../static/js/script.js"></script>
+<script src="../static/js/contact_service.js"></script>
 </body>
 </html>
