@@ -25,8 +25,11 @@ public class Movie {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "poster_URL")
+    @Column(name = "poster_url")
     private String posterURL;
+
+    @Column(name = "wide_poster_url")
+    private String widePosterURL;
 
     @Column(name = "trailer_URL")
     private String trailerURL;

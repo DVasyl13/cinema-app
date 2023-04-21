@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/login")
+    @Transactional
     public ResponseEntity<Object> login(@RequestBody UserSubmission userSubmission, HttpSession session) {
         User user = userService.authenticateUser(userSubmission.email(), userSubmission.password());
         session.setAttribute("email", userSubmission.email()); // може спрацює
@@ -32,6 +34,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
+    @Transactional
     public ResponseEntity<Object> registration(@RequestBody NewUserSubmission userSubmission, HttpSession session) {
         User user = userService.saveUser(userSubmission);
         session.setAttribute("email", userSubmission.email()); // може спрацює

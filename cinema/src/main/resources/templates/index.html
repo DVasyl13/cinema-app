@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/slider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +21,7 @@
          alt="logo">
     <div class="dropdown">
         <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
-        <div class="dropdown-content">
-            <a href="#">Львів, ТРЦ Мегаполіс</a>
-            <a href="#">Львів, ТРЦ Мегаполіс</a>
-            <a href="#">Львів, ТРЦ Мегаполіс</a>
+        <div id="cinemas" class="dropdown-content">
         </div>
     </div>
     <nav>
@@ -57,17 +55,21 @@
         <input type="text" class="input-field" name="surname" id="registration-surname" placeholder="Прізвище">
         <input type="email" class="input-field" name="email" id="registration-email" placeholder="Email">
         <input type="password" class="input-field" name="password" id="registration-password" placeholder="Пароль">
-        <input type="password" class="input-field" name="repeat-password" id="repeat-password" placeholder="Підтвердження пароля">
+        <input type="password" class="input-field" name="repeat-password" id="repeat-password"
+               placeholder="Підтвердження пароля">
         <input type="submit" id="create-account-button" value="Зареєструватися">
         <button id="login-form-button"> Увійти в обліковий запис</button>
     </form>
 </div>
 
 <main>
-    <div class="bigFrame">
-        <img src="https://www.kinolumiere.com/uploads/films/1681206161_Renfield_1920x800_Lumiere.jpg" alt="movie image">
-        <button>Деталі</button>
-    </div>
+    <section class="slider-container">
+        <div class="slider-wrapper">
+            <div id="slider" class="slider"></div>
+            <div id="slider-nav" class="slider-nav"></div>
+        </div>
+    </section>
+
     <div class="movie-wrapper">
         <article class="movie-frame">
             <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
@@ -87,7 +89,7 @@
     </div>
 </main>
 
-    <script src="/js/script.js"></script>
-    <script src="/js/contact_service.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/contact_service.js"></script>
 </body>
 </html>
