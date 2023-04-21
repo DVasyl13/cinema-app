@@ -106,6 +106,7 @@ let arrayOfMovies = [];
 let arrayOfCinema = [];
 const sliderFrames = [];
 const cinemas = [];
+const movieCards = [];
 
 window.onload = function() {
     getMovies();
@@ -127,6 +128,7 @@ const getMovies = () => {
             console.log(data);
             arrayOfMovies = data;
             initializeSlider();
+            initializeMovieCards();
         })
         .catch(error => {
             console.error('Error:', error);
@@ -174,15 +176,88 @@ const initializeSlider = () => {
         slider.appendChild(img);
         sliderNav.appendChild(a);
     });
+}
+
+const initializeMovieCards = () => {
+    arrayOfMovies.forEach( function (value, i) {
+        movieCards.push({
+            id: i,
+            posterURL: value.posterURL,
+            title: value.title,
+            ageLimit: value.ageLimit,
+            duration: value.duration,
+            genres: value.genres,
+            releaseDate: value.releaseDate
+        });
+    });
+
+    const movieFlexBox = document.getElementById('card-container');
+    movieCards.forEach((movie, index) => {
+        const card = document.createElement('div');
+        card.setAttribute('class', 'card');
+
+        const img = document.createElement('img');
+        img.src = movie.posterURL;
+        img.alt = 'movie ' + index;
+        card.appendChild(img);
+
+        const cardBody = document.createElement('div');
+        cardBody.setAttribute('class', 'card-body')
+
+        const filmTitle = document.createElement('h4');
+        filmTitle.innerHTML = movie.title;
+        cardBody.appendChild(filmTitle);
+
+        const ageLimit = document.createElement('p');
+        ageLimit.setAttribute('class', 'fat');
+        ageLimit.innerHTML = ''+movie.ageLimit+'+';
+        cardBody.appendChild(ageLimit);
 
 
+        const genre = document.createElement('p');
+        genre.setAttribute('class', 'fat');
+        genre.innerHTML = 'Жанр';
+        cardBody.appendChild(genre);
+
+        const genres = document.createElement('p');
+        const arrayOfGenres = movie.genres.map((value) => {
+            return value.name;
+        });
+        genres.innerHTML = arrayOfGenres.toString().replaceAll(',', ', ');
+        cardBody.appendChild(genres);
+
+        const duration = document.createElement('p');
+        duration.setAttribute('class', 'fat');
+        duration.innerHTML = 'Тривалість';
+        cardBody.appendChild(duration);
+
+        const numOfMin = document.createElement('p');
+        duration.innerHTML = ''+movie.duration+'хв';
+        cardBody.appendChild(numOfMin);
+
+
+        const date = document.createElement('p');
+        date.setAttribute('class', 'centered');
+        date.innerHTML = 'з ' + getDate(movie.releaseDate);
+        cardBody.appendChild(date);
+
+        card.appendChild(cardBody);
+        movieFlexBox.appendChild(card);
+    });
+}
+
+const getDate = (strOfString) => {
+    const dateObject = new Date(strOfString);
+    const year = dateObject.getFullYear();
+    const month = ('0' + (dateObject.getMonth() + 1)).slice(-2);
+    const day = ('0' + dateObject.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
 }
 
 const initializeCinemaList = () => {
     arrayOfCinema.forEach( function (value, i) {
         cinemas.push({id: i, address: value.address});
     });
-    console.log(cinemas);
 
     const cinemaHolder = document.getElementById('cinemas');
     cinemas.forEach((i, index) => {
