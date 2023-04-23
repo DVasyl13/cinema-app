@@ -46,12 +46,20 @@ public class Movie {
     @Column(name = "release_Date")
     private Date releaseDate;
 
+    @Column(name = "start_show_date")
+    private Date startShowDate;
+
+    @Column(name = "end_show_date")
+    private Date endShowDate;
+
+
+
     @ManyToMany(mappedBy = "movies")
     @JsonManagedReference
     private Set<Genre> genres = new HashSet<>();
     @OneToMany(mappedBy = "movie", orphanRemoval = true)
     @JsonManagedReference
-    private List<Showtime> showtimeList = new ArrayList<>();;
+    private List<Showtime> showtimeList = new ArrayList<>();
 
     public void addShowtime(Showtime showtime) {
         showtime.setMovie(this);
