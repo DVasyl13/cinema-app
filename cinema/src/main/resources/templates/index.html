@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../static/img/logo.jpg">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/slider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,15 +17,11 @@
 <body>
 <div id="background-popup"></div>
 <header>
-    <a href="index.html" class="logo">
-        <img src="../static/img/logo.jpg"
-             alt="logo"></a>
+    <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png"
+         alt="logo">
     <div class="dropdown">
         <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
-        <div class="dropdown-content">
-            <a href="#">Львів, ТРЦ Мегаполіс</a>
-            <a href="#">Львів, ТРЦ Мегаполіс</a>
-            <a href="#">Львів, ТРЦ Мегаполіс</a>
+        <div id="cinemas" class="dropdown-content">
         </div>
     </div>
     <nav>
@@ -39,7 +35,6 @@
     <button id="main-login-button">Увійти</button>
 </header>
 <div class="login-popup">
-
     <form id="login-form" onsubmit="loginUser(event);return false;">
         <span class="material-icons" id="close-login-button">close</span>
         <h2>Вхід</h2>
@@ -68,30 +63,18 @@
 </div>
 
 <main>
-    <div class="bigFrame">
-        <img src="https://www.kinolumiere.com/uploads/films/1681206161_Renfield_1920x800_Lumiere.jpg" alt="movie image">
-        <button>Деталі</button>
-    </div>
-    <div class="movie-wrapper">
-        <article class="movie-frame">
-            <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
-        </article>
+    <section class="slider-container">
+        <div class="slider-wrapper">
+            <div id="slider" class="slider"></div>
+            <div id="slider-nav" class="slider-nav"></div>
+        </div>
+    </section>
 
-        <article class="movie-frame">
-            <img src="https://miromax.film/images/cinema/ky1-531.jpg" alt="movie image">
-        </article>
-
-        <article class="movie-frame">
-            <img src="https://miromax.film/images/cinema/ky1-527.jpg" alt="movie image">
-        </article>
-
-        <article class="movie-frame">
-            <img src="https://miromax.film/images/cinema/ky1-525.jpg" alt="movie image">
-        </article>
+    <div id="card-container" class="card-container">
     </div>
 </main>
 
-<script src="../static/js/script.js"></script>
-<script src="../static/js/contact_service.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/contact_service.js"></script>
 </body>
 </html>

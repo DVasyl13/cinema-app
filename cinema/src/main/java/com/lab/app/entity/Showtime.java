@@ -1,6 +1,7 @@
 package com.lab.app.entity;
 
-import com.lab.app.entity.util.enums.Format;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.lab.app.util.enums.Format;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,12 +36,14 @@ public class Showtime {
     private List<Booking> bookings = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     @JoinColumn(name = "movie_id", referencedColumnName = "id",
             insertable = false, updatable = false,
             foreignKey = @ForeignKey(name = "FK_showtime_movie"))
     private Movie movie;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     @JoinColumn(name = "cinema_hall_id", referencedColumnName = "id",
             insertable = false, updatable = false,
             foreignKey = @ForeignKey(name = "FK_showtime_cinemaHall"))

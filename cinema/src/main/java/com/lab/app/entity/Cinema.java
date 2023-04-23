@@ -1,5 +1,6 @@
 package com.lab.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class Cinema {
     private String email;
 
     @OneToMany(mappedBy = "cinema", orphanRemoval = true)
+    @JsonManagedReference
     private List<CinemaHall> cinemaHallList = new ArrayList<>();;
 
 }

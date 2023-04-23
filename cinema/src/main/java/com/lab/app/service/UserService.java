@@ -22,11 +22,8 @@ public class UserService {
 
 
     @Transactional
-    public boolean saveUser(NewUserSubmission newUser) {
-        User user = new User( newUser.name(),
-                            newUser.surname(),
-                            newUser.password(),
-                            newUser.email());
+    public User saveUser(NewUserSubmission newUser) {
+        User user = new User(newUser.name(), newUser.surname(), newUser.password(), newUser.email());
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
@@ -35,16 +32,15 @@ public class UserService {
             throw new UserAlreadyExistException(newUser.email());
         }
         else {
-            userRepository.save(user);
-            return true;
+            return userRepository.save(user);
         }
     }
 
     @Transactional
-    public boolean authenticateUser(String email, String password) {
-        User user = userRepository.findUserByEmail(email);
+    public User authenticateUser(String email, String password) {
+        User user = userRepository.findUserByEmailFetchBooking(email);
         if (user != null && passwordEncoder.matches(password, user.getPassword())){
-            return true;
+            return user;
         }
         else {
             throw new UserNotFoundException(email);

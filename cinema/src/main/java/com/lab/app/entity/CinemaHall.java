@@ -1,5 +1,7 @@
 package com.lab.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,9 +25,11 @@ public class CinemaHall {
     private Integer capacity;
 
     @OneToMany(mappedBy = "cinemaHall", orphanRemoval = true)
-    private List<Showtime> showtimeList = new ArrayList<>();;
+    @JsonManagedReference
+    private List<Showtime> showtimeList = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     @JoinColumn(name = "cinema_id", referencedColumnName = "id",
             insertable = false, updatable = false,
             foreignKey = @ForeignKey(name = "FK_cinemaHall_cinema"))

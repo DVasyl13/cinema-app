@@ -1,5 +1,6 @@
 package com.lab.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,8 +25,11 @@ public class Movie {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "poster_URL")
+    @Column(name = "poster_url")
     private String posterURL;
+
+    @Column(name = "wide_poster_url")
+    private String widePosterURL;
 
     @Column(name = "trailer_URL")
     private String trailerURL;
@@ -34,14 +38,19 @@ public class Movie {
     private Integer duration;
 
     @Column(name = "rating")
-    private Byte rating;
+    private Float rating;
+
+    @Column(name = "age_limit")
+    private Integer ageLimit;
 
     @Column(name = "release_Date")
     private Date releaseDate;
 
     @ManyToMany(mappedBy = "movies")
+    @JsonManagedReference
     private Set<Genre> genres = new HashSet<>();
     @OneToMany(mappedBy = "movie", orphanRemoval = true)
+    @JsonManagedReference
     private List<Showtime> showtimeList = new ArrayList<>();;
 
     public void addShowtime(Showtime showtime) {
