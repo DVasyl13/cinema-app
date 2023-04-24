@@ -17,7 +17,7 @@
 <body>
 <div id="background-popup"></div>
 <header>
-    <a th:href = "@{/}">
+    <a th:href="@{/}">
         <img src="/img/logo.png" alt="logo">
     </a>
     <div class="dropdown">
@@ -27,10 +27,18 @@
     </div>
     <nav>
         <ul>
-            <li>СКОРО</li>
-            <li>ФІЛЬМИ</li>
-            <li>РОЗКЛАД СЕАНСІВ</li>
-            <li>ПРО НАС</li>
+            <a th:href="@{soon}">
+                <li>СКОРО</li>
+            </a>
+            <a th:href="@{/movie}">
+                <li>ФІЛЬМИ</li>
+            </a>
+            <a th:href="@{showtime}">
+                <li>РОЗКЛАД СЕАНСІВ</li>
+            </a>
+            <a th:href="@{info}">
+                <li>ПРО НАС</li>
+            </a>
         </ul>
     </nav>
     <button id="main-login-button">Увійти</button>
@@ -78,8 +86,8 @@
     </footer>
 </main>
 
-<script  src="/js/common/header.js"></script>
-<script  type="module" src="/js/index/index.js"></script>
+<script src="/js/common/header.js"></script>
+<script type="module" src="/js/index/index.js"></script>
 
 
 </body>

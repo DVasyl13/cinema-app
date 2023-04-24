@@ -19,7 +19,7 @@ public class CinemaApplication {
     }
 
     @Scheduled(fixedDelay = 24 * 60 * 60 * 1000) // each 24 hours will be refreshed
-    @CacheEvict({"movies", "cinemas"})
+    @CacheEvict({"movies", "cinemas", "movie"})
     public void refreshCache() {
         log.info("[Refreshing cache]");
     }
