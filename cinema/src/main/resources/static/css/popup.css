@@ -11,7 +11,7 @@
     opacity: 0;
     text-align: center;
     transition: all 0.7s ease;
-    z-index: 999;
+    z-index: 10;
 }
 
 .registration-popup{
@@ -27,7 +27,7 @@
     transition: all 0.7s ease;
     border-radius: 22px;
     text-align: center;
-    z-index: 999;
+    z-index: 10;
 }
 .active{
     transform: translate(-50%, -50%);
@@ -102,7 +102,7 @@
     background-color: rgba(0, 0, 0, 0.6);
     transition-delay: 0.35s;
     transition: 0.3s;
-    z-index: 990;
+    z-index: 10;
     opacity: 1;
 
 }
