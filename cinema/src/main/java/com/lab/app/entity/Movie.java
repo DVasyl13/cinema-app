@@ -53,7 +53,16 @@ public class Movie {
     @Column(name = "end_show_date")
     private Date endShowDate;
 
+    @Column(name = "movie_picture_URL")
+    private String moviePictureUrl;
 
+    @ManyToMany(mappedBy = "movies")
+    @JsonManagedReference
+    private Set<Director> directors  = new HashSet<>();
+
+    @ManyToMany(mappedBy = "movies")
+    @JsonManagedReference
+    private Set<Actor> actors = new HashSet<>();
 
     @ManyToMany(mappedBy = "movies")
     @JsonManagedReference

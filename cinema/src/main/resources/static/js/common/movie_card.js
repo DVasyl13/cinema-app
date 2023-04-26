@@ -19,7 +19,6 @@ function initializeMovieCards ()  {
             console.log(data);
             arrayOfMovies = data;
             createMovieCards();
-            /*initializeSlider();*/
         })
         .catch(error => {
             console.error('Error:', error);
@@ -29,9 +28,9 @@ function initializeMovieCards ()  {
 
 
 const createMovieCards = () => {
-    arrayOfMovies.forEach( function (value, i) {
+    arrayOfMovies.forEach( function (value) {
         movieCards.push({
-            id: i,
+            id: value.id,
             posterURL: value.posterURL,
             title: value.title,
             ageLimit: value.ageLimit,
@@ -45,6 +44,9 @@ const createMovieCards = () => {
 
     const movieFlexBox = document.getElementById('card-container');
     movieCards.forEach((movie, index) => {
+        const ref = document.createElement('a');
+        ref.setAttribute('href', '/movie/'+movie.id);
+
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
 
@@ -98,7 +100,8 @@ const createMovieCards = () => {
         cardBody.appendChild(date);
 
         card.appendChild(cardBody);
-        movieFlexBox.appendChild(card);
+        ref.appendChild(card);
+        movieFlexBox.appendChild(ref);
     });
 }
 
