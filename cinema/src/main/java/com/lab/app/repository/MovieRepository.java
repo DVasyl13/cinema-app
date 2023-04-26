@@ -14,6 +14,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
             "from Movie m" +
             " left join fetch m.genres g" +
             " left join fetch m.showtimeList sh" +
+            " left join fetch m.actors a " +
+            " left join fetch m.directors d " +
             " left join fetch sh.cinemaHall ch")
     List<Movie> findAll();
 

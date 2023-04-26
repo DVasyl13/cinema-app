@@ -1,7 +1,5 @@
 package com.lab.app.controller;
 
-import com.lab.app.controller.exception.UserAlreadyExistException;
-import com.lab.app.controller.exception.UserNotFoundException;
 import com.lab.app.dto.NewUserSubmission;
 import com.lab.app.dto.UserSubmission;
 import com.lab.app.entity.User;
