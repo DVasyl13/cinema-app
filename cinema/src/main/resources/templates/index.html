@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/popup.css">
     <link rel="stylesheet" type="text/css" href="/css/slider.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,22 +27,23 @@
         </div>
     </div>
     <nav>
-        <ul>
+        <ul class="main-nav" >
             <a th:href="@{/soon}">
-                <li>СКОРО</li>
+                <li>Скоро</li>
             </a>
             <a th:href="@{/movie}">
-                <li>ФІЛЬМИ</li>
+                <li>Фільми</li>
             </a>
             <a th:href="@{/soon}">
-                <li>РОЗКЛАД СЕАНСІВ</li>
+                <li>Розклад сеансів</li>
             </a>
             <a th:href="@{/info}">
-                <li>ПРО НАС</li>
+                <li>Про нас</li>
             </a>
         </ul>
     </nav>
     <button id="main-login-button">Увійти</button>
+
 </header>
 <div class="login-popup">
     <div id="login-form">

@@ -17,12 +17,12 @@ const controlDisapearingBG = (flag) => {
 loginBtn.addEventListener('click', () => {
     document.querySelector(".login-popup").classList.add("active");
     document.querySelector(".registration-popup").classList.remove("active");
+    controlDisapearingBG(1);
 });
 
 regBtn.addEventListener('click', () => {
     document.querySelector(".login-popup").classList.remove("active");
     document.querySelector(".registration-popup").classList.add("active");
-    controlDisapearingBG(1);
 });
 closeLoginFormBtn.addEventListener('click', () => {
     document.querySelector(".login-popup").classList.remove("active");
@@ -34,6 +34,11 @@ closeRegistrationFormBtn.addEventListener('click', () => {
     document.querySelector(".registration-popup").classList.remove("active");
     controlDisapearingBG(0);
 });
+shadowBG.addEventListener('click', () => {
+    document.querySelector(".login-popup").classList.remove("active");
+    document.querySelector(".registration-popup").classList.remove("active");
+    controlDisapearingBG(0)
+})
 
 loginFormPopUpButton.addEventListener('click', () => {
     document.querySelector(".login-popup").classList.add("active");
