@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/contacts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script defer src="../static/js/script.js"></script>
+    <script defer src="../static/js/contact_service.js"></script>
+    <title>Contacts</title>
+</head>
+<body>
+    <header>
+        <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png" alt="logo">
+        <div class="dropdown">
+            <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
+            <div class="dropdown-content">
+                <a href="#">Львів, ТРЦ Мегаполіс</a>
+                <a href="#">Львів, ТРЦ Мегаполіс</a>
+                <a href="#">Львів, ТРЦ Мегаполіс</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li>СКОРО</li>
+                <li>ФІЛЬМИ</li>
+                <li>РОЗКЛАД СЕАНСІВ</li>
+                <li>ПРО НАС</li>
+            </ul>
+        </nav>
+        <button id="loginBtn">Увійти</button>
+    </header>
+
+    <div id="backgroundPopup"></div>
+    <div class="loginPopup">
+        <form id="formPopup" onsubmit="submitContact(event);return false;">
+            <h2>Вхід</h2>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="Пароль">
+            <input id="loginPopupBtn" type="submit" value="Увійти">
+        </form>
+        <button id="regPopupBtn">Реєстрація</button>
+    </div>
+    
+    <div class="regPopup">
+        <form id="formPopup" onsubmit="submitContact(event);return false;">
+            <h2>Реєстрація</h2>
+            <input type="text" name="Name" id="regName" placeholder="Імʼя">
+            <input type="text" name="Surname" id="regSurName" placeholder="Прізвище">
+            <input type="email" name="Email" id="regEmail" placeholder="Email">
+            <input type="text" name="Password"  id="regPassword" placeholder="Пароль">
+            <input type="text" name="DupPassword" id="regDupPass" placeholder="Підтвердження пароля">
+            <input type="submit" id="createAccBtn">Створити</button>
+        </form>
+    </div>
+
+    <main>
+        <div id="topSection">
+            <h1>Про нас</h1>
+            <img id="ourLogo"src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png" alt="logo">
+        </div>
+        <div id="panelSection">
+            <div class="panel">
+                <input type="checkbox" id="check1">
+                <label for="check1" class="panelHead">Як все починалось<img src="/static/assets/Expand_down.png"></label>
+                <div class="panelContent content1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est architecto qui veniam asperiores blanditiis explicabo non fugiat, illum, consequuntur aut animi mollitia modi dolore, inventore voluptate? Alias, vel atque animi perspiciatis porro, amet odio excepturi totam quibusdam illum explicabo possimus, tenetur necessitatibus architecto repellat ratione cupiditate quidem sunt culpa? Eaque.</div>
+            </div>
+            <div class="panel">
+                <input type="checkbox" id="check2">
+                <label for="check2" class="panelHead">Наші переваги<img src="/static/assets/Expand_down.png"></label>
+                <div class="panelContent content2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est architecto qui veniam asperiores blanditiis explicabo non fugiat, illum, consequuntur aut animi mollitia modi dolore, inventore voluptate? Alias, vel atque animi perspiciatis porro, amet odio excepturi totam quibusdam illum explicabo possimus, tenetur necessitatibus architecto repellat ratione cupiditate quidem sunt culpa? Eaque.</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footerWrapper">
+            <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png" alt="logo" id="logo--bottom">
+            <div>
+                <h3>NULP films</h3>
+                <p>Зробили ми - для вас</p>
+            </div>
+            <div>
+                <h3>Зв'яжіться з нами</h3>
+                <span class="sociaLogoContainer">
+                    <img src="/static/assets/Facebook.png" alt="fb">
+                    <img src="/static/assets/Twitter.png" alt="tw">
+                    <img src="/static/assets/Instagram.png" alt="inst">
+                    <img src="/static/assets/Youtube.png" alt="yt">
+                </span>
+            </div>
+        </div>
+        <div class="bottomText">
+            <ul>
+                <li><a href="#">Site Terms</a></li>
+                <li><a href="#">Privacy Policy/Your Policy Rights</a></li>
+                <li><a href="#">State Disclosures</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>

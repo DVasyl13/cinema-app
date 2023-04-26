@@ -1,0 +1,52 @@
+body{
+    color: white;
+    font-size: 1.2em;
+}
+
+.linkTree{
+    display: flex;
+    align-items: center;
+    padding: 40px 60px;
+}
+a{
+    color: #C6C6C6;
+    text-decoration: none;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.wrapper p{
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.wrapper span{
+    margin-left: 16px;
+    font-weight: 400;
+    
+}
+
+.wrapper img{
+    float: left;
+    margin: 4rem;
+    width: 16vw;
+    min-width: min-content;
+}
+
+.imageContainer{
+    width: 30%;
+}
+
+.infoSection{
+    width: 70%;
+}
+
+#movieDescription{
+    font-weight: 500;
+    max-width: 80%;
+}

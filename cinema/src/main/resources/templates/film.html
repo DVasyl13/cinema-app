@@ -7,12 +7,13 @@
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="../static/css/header.css">
     <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/film.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script defer src="../static/js/script.js"></script>
     <script defer src="../static/js/contact_service.js"></script>
-    <title>Cinema</title>
+    <title>FilmName</title>
 </head>
 <body>
     <header>
@@ -58,29 +59,32 @@
             <input type="submit" id="createAccBtn">Створити</button>
         </form>
     </div>
-        
+
     <main>
-        <div class="bigFrame">
-            <img src="https://www.kinolumiere.com/uploads/films/1681206161_Renfield_1920x800_Lumiere.jpg" alt="movie image">
-            <button>Деталі</button>
+        <div class="linkTree">
+            <a href="/templates/index.html">Quad Cinema</a><img src="/static/assets/Expand_right.png" alt="->">
+            <a href="#">Фільми</a><img src="/static/assets/Expand_right.png" alt="->">
+            <a href="#">Вавилон</a><img src="/static/assets/Expand_right.png" alt="->">
         </div>
-        <div class="movieWrapper">
-        <article class="movieFrame">
-            <img src="https://miromax.film/images/cinema/ky1-532.jpg" alt="movie image">
-        </article>
-        
-        <article class="movieFrame">
-            <img src="https://miromax.film/images/cinema/ky1-531.jpg" alt="movie image">
-        </article>
-        
-        <article class="movieFrame">
-            <img src="https://miromax.film/images/cinema/ky1-527.jpg" alt="movie image">
-        </article>
-        
-        <article class="movieFrame">
-            <img src="https://miromax.film/images/cinema/ky1-525.jpg" alt="movie image">
-        </article>
-    </div>
+        <div class="wrapper">
+            <div id="imageContainer">
+                <img src="https://miromax.film/images/cinema/ky1-521.jpg" alt="filmLogo">
+            </div>
+            <div class="infoSection">
+                <h1>Вавилон</h1>
+                <p>Вік: <span id="ageRestriction">18+</span></p>
+                <p>Рік: <span id="year">2023</span></p>
+                <p>Період прокату: <span id="period">19.03.2023 - 23.05.2023</span></p>
+                <p>Жанр: <span id="genre">історичний, драма</span></p>
+                <p>Тривалість: <span id="duration">189 хв.</span></p>
+                <p>У головних ролях: <span id="mainChars">Бред Пітт, Марґо Роббі, Тобі Маґваєр, Олівія Вайлд</span></p>
+                <p id="movieDescription">Лауреат премії «Оскар» Демієн Шазелл збирає неповторний зірковий каст
+                та запрошує поринути в Лос-Анджелес 1920-х років! 
+                Зустрічайте на великому екрані Бреда Пітта, Марґо Роббі, Дієго Кальву, 
+                Тобі Маґвайра й Олівію Вайлд в епічній кіноісторії. Шалена 
+                розповідь про величезні амбіції та надмірну дозволеність розкаже про злети 
+                та падіння в епоху декадансу та розпусти в ранньому Голлівуді.</p>
+            </div>
+        </div>
     </main>
 </body>
-</html>
