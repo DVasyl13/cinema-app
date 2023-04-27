@@ -4,61 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/popup.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/contacts.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/contacts.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script defer src="../static/js/script.js"></script>
-    <script defer src="../static/js/contact_service.js"></script>
-    <title>Contacts</title>
+    <script defer src="/js/contact_service.js"></script>
+    <title>QUAD Cinema</title>
 </head>
 <body>
-    <header>
-        <img src="https://cdn.discordapp.com/attachments/1094256351284318209/1094280342426374325/Screenshot_2023-04-08_at_1easasdasdasd.11.55.png" alt="logo">
-        <div class="dropdown">
-            <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
-            <div class="dropdown-content">
-                <a href="#">Львів, ТРЦ Мегаполіс</a>
-                <a href="#">Львів, ТРЦ Мегаполіс</a>
-                <a href="#">Львів, ТРЦ Мегаполіс</a>
-            </div>
+<div id="background-popup"></div>
+<header>
+    <a th:href="@{/}">
+        <img src="/img/logo.png" alt="logo">
+    </a>
+    <div class="dropdown">
+        <button class="dropbtn">Львів, ТРЦ Мегаполіс</button>
+        <div id="cinemas" class="dropdown-content">
         </div>
-        <nav>
-            <ul>
-                <li>СКОРО</li>
-                <li>ФІЛЬМИ</li>
-                <li>РОЗКЛАД СЕАНСІВ</li>
-                <li>ПРО НАС</li>
-            </ul>
-        </nav>
-        <button id="loginBtn">Увійти</button>
-    </header>
+    </div>
+    <nav>
+        <ul class="main-nav">
+            <a th:href="@{/soon}">
+                <li>Скоро</li>
+            </a>
+            <a th:href="@{/movie}">
+                <li>Фільми</li>
+            </a>
+            <a th:href="@{/soon}">
+                <li>Розклад сеансів</li>
+            </a>
+            <a th:href="@{/info}">
+                <li>Про нас</li>
+            </a>
+        </ul>
+    </nav>
+    <button id="main-login-button">Увійти</button>
 
-    <div id="backgroundPopup"></div>
-    <div class="loginPopup">
-        <form id="formPopup" onsubmit="submitContact(event);return false;">
-            <h2>Вхід</h2>
-            <input type="email" name="email" id="email" placeholder="Email">
-            <input type="password" name="password" id="password" placeholder="Пароль">
-            <input id="loginPopupBtn" type="submit" value="Увійти">
-        </form>
-        <button id="regPopupBtn">Реєстрація</button>
+</header>
+<div class="login-popup">
+    <div id="login-form">
+        <span class="material-icons" id="close-login-button">close</span>
+        <h2>Вхід</h2>
+        <input type="email" class="input-field" name="email" id="email" placeholder="Email">
+        <input type="password" class="input-field" name="password" id="password" placeholder="Пароль">
+        <label id="lb-log"></label>
+        <button id="login-popup-button" onclick="loginUser()">Увійти</button>
+        <button id="registration-popup-button">Реєстрація</button>
     </div>
-    
-    <div class="regPopup">
-        <form id="formPopup" onsubmit="submitContact(event);return false;">
-            <h2>Реєстрація</h2>
-            <input type="text" name="Name" id="regName" placeholder="Імʼя">
-            <input type="text" name="Surname" id="regSurName" placeholder="Прізвище">
-            <input type="email" name="Email" id="regEmail" placeholder="Email">
-            <input type="text" name="Password"  id="regPassword" placeholder="Пароль">
-            <input type="text" name="DupPassword" id="regDupPass" placeholder="Підтвердження пароля">
-            <input type="submit" id="createAccBtn">Створити</button>
-        </form>
+
+</div>
+
+<div class="registration-popup">
+    <div id="registration-form">
+        <span class="material-icons" id="close-registration-button">close</span>
+        <h2>Реєстрація</h2>
+        <input type="text" class="input-field" name="name" id="registration-name" placeholder="Імʼя">
+        <input type="text" class="input-field" name="surname" id="registration-surname" placeholder="Прізвище">
+        <input type="email" class="input-field" name="email" id="registration-email" placeholder="Email">
+        <input type="password" class="input-field" name="password" id="registration-password" placeholder="Пароль">
+        <input type="password" class="input-field" name="repeat-password" id="repeat-password"
+               placeholder="Підтвердження пароля">
+        <label id="lb-reg"></label>
+        <button id="create-account-button" onclick="resisterNewUser()">Зареєструватися</button>
+        <button id="login-form-button"> Увійти в обліковий запис</button>
     </div>
+</div>
+
 
     <main>
         <div id="topSection">

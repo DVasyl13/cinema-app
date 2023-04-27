@@ -21,6 +21,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Query("select distinct m from Movie m " +
             "left join fetch m.genres " +
+            " left join fetch m.actors a " +
+            " left join fetch m.directors d " +
             " left join fetch m.showtimeList sh where m.id=?1")
     Optional<Movie> findById(Long id);
 

@@ -11,8 +11,6 @@ const initializeSlider = (arrayOfMovies) => {
             return response.json();
         })
         .then(data => {
-            console.log('Calling from [getMovies()] => \n');
-            console.log(data);
             arrayOfMovies = data;
             createSlider(arrayOfMovies);
         })
