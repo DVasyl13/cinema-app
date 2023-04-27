@@ -7,13 +7,14 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/popup.css">
-    <link rel="stylesheet" type="text/css" href="/css/slider.css">
+
     <link rel="icon" type="image/x-icon" href="/img/icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Cinema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
+    <title>FilmName</title>
 </head>
 <body>
 <div id="background-popup"></div>
@@ -27,7 +28,7 @@
         </div>
     </div>
     <nav>
-        <ul class="main-nav" >
+        <ul class="main-nav">
             <a th:href="@{/soon}">
                 <li>Скоро</li>
             </a>
@@ -74,24 +75,36 @@
     </div>
 </div>
 
+
 <main>
-    <section class="slider-container">
-        <div class="slider-wrapper">
-            <div id="slider" class="slider"></div>
-            <div id="slider-nav" class="slider-nav"></div>
+    <!--<div class="linkTree">
+        <a href="/templates/index.html">Quad Cinema</a><img src="/static/assets/Expand_right.png" alt="->">
+        <a href="#">Фільми</a><img src="/static/assets/Expand_right.png" alt="->">
+        <a href="#">Вавилон</a><img src="/static/assets/Expand_right.png" alt="->">
+    </div>-->
+    <div class="wrapper">
+        <div id="imageContainer">
+            <img src="https://miromax.film/images/cinema/ky1-521.jpg" alt="filmLogo">
         </div>
-    </section>
-
-    <div id="card-container" class="card-container">
+        <div class="infoSection">
+            <h1>Вавилон</h1>
+            <p>Вік: <span id="ageRestriction">18+</span></p>
+            <p>Рік: <span id="year">2023</span></p>
+            <p>Період прокату: <span id="period">19.03.2023 - 23.05.2023</span></p>
+            <p>Жанр: <span id="genre">історичний, драма</span></p>
+            <p>Тривалість: <span id="duration">189 хв.</span></p>
+            <p>У головних ролях: <span id="mainChars">Бред Пітт, Марґо Роббі, Тобі Маґваєр, Олівія Вайлд</span></p>
+            <p id="movieDescription">Лауреат премії «Оскар» Демієн Шазелл збирає неповторний зірковий каст
+                та запрошує поринути в Лос-Анджелес 1920-х років!
+                Зустрічайте на великому екрані Бреда Пітта, Марґо Роббі, Дієго Кальву,
+                Тобі Маґвайра й Олівію Вайлд в епічній кіноісторії. Шалена
+                розповідь про величезні амбіції та надмірну дозволеність розкаже про злети
+                та падіння в епоху декадансу та розпусти в ранньому Голлівуді.</p>
+        </div>
     </div>
-    <footer>
-
-    </footer>
 </main>
-
 <script src="/js/common/header.js"></script>
-<script type="module" src="/js/index/index.js"></script>
-
+<script type="module" src="/js/film/film.js"></script>
 
 </body>
 </html>
