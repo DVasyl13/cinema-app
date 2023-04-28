@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
     <title>QUAD Cinema</title>
 </head>
 <body>
@@ -27,7 +29,7 @@
         </div>
     </div>
     <nav>
-        <ul class="main-nav" >
+        <ul class="main-nav">
             <a th:href="@{/soon}">
                 <li>Скоро</li>
             </a>
@@ -76,10 +78,16 @@
 
 <main>
     <section class="slider-container">
-        <div class="slider-wrapper">
-            <div id="slider" class="slider"></div>
-            <div id="slider-nav" class="slider-nav"></div>
+    <div class="swiper">
+        <div id="swiper-wrapper" class="swiper-wrapper">
+            ...
         </div>
+
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
     </section>
 
     <div id="card-container" class="card-container">
@@ -91,6 +99,8 @@
 
 <script src="/js/common/header.js"></script>
 <script type="module" src="/js/index/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="/js/index/slider-animation.js"></script>
 
 
 </body>

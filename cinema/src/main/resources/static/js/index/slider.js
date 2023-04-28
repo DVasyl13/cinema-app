@@ -1,5 +1,4 @@
 const sliderFrames = [];
-
 const initializeSlider = (arrayOfMovies) => {
     fetch('/api/v1/movie', {
         method: 'Get'
@@ -12,7 +11,7 @@ const initializeSlider = (arrayOfMovies) => {
         })
         .then(data => {
             arrayOfMovies = data;
-            createSlider(arrayOfMovies);
+            createSlider(arrayOfMovies)
         })
         .catch(error => {
             console.error('Error:', error);
@@ -23,20 +22,18 @@ const createSlider = (arrayOfMovies) => {
         sliderFrames.push({id: i, url: value.widePosterURL});
     });
 
-    const slider = document.getElementById('slider');
-    const sliderNav = document.getElementById('slider-nav');
+    const sliderGroup = document.getElementById('swiper-wrapper');
 
     sliderFrames.forEach((image, index) => {
+        const slider = document.createElement('div');
+        slider.setAttribute('class', 'swiper-slide');
         const img = document.createElement('img');
         img.id = 'slide-'+index;
         img.src = image.url;
         img.alt = `Slide ${image.id}`;
-
-        const a = document.createElement('a');
-        a.href = '#'+img.getAttribute('id');
-
         slider.appendChild(img);
-        sliderNav.appendChild(a);
+
+        sliderGroup.appendChild(slider);
     });
 }
 export default initializeSlider
