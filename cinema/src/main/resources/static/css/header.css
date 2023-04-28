@@ -48,7 +48,27 @@ header ul li{
     font-size: 20px;
 }
 
-#main-login-button{
+.dropdown select {
+    color: #fff;
+    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    background: none;
+    border-radius: 14px;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.dropdown option {
+    background-color: black;
+    font:  14px/1.4 'Open Sans', arial, sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+
+#main-login-button, #user-button{
     margin-right: 100px;
     margin-bottom: 6px;
     font-size: 22px;
@@ -62,15 +82,16 @@ header ul li{
     transition: background-color  0.5s;
 }
 
-#main-login-button:hover {
+#main-login-button:hover, #user-button:hover {
     background-color: #ffffff;
     color: #000;
 }
 
 #main-login-button:focus,
-#main-login-button:active {
+#main-login-button:active,
+#user-button:focus,
+#user-button:active {
     background-color: black;
-
 }
 
 

@@ -2,6 +2,7 @@ package com.lab.app.service;
 
 import com.lab.app.controller.exception.UserAlreadyExistException;
 import com.lab.app.controller.exception.UserNotFoundException;
+import com.lab.app.controller.exception.WrongPasswordException;
 import com.lab.app.dto.NewUserSubmission;
 import com.lab.app.entity.User;
 import com.lab.app.repository.UserRepository;
@@ -39,12 +40,13 @@ public class UserService {
     @Transactional
     public User authenticateUser(String email, String password) {
         User user = userRepository.findUserByEmailFetchBooking(email);
-        if (user != null && passwordEncoder.matches(password, user.getPassword())){
-            return user;
+        if( user != null) {
+            if (passwordEncoder.matches(password, user.getPassword())) {
+                return user;
+            }
+            throw new WrongPasswordException(email);
         }
-        else {
-            throw new UserNotFoundException(email);
-        }
+        throw new UserNotFoundException(email);
     }
 
     /**
