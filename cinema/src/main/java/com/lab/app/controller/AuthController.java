@@ -26,8 +26,6 @@ public class AuthController {
     @Transactional
     public ResponseEntity<Object> login(@RequestBody UserSubmission userSubmission, HttpSession session) {
         User user = userService.authenticateUser(userSubmission.email(), userSubmission.password());
-        session.setAttribute("email", userSubmission.email()); // може спрацює
-        session.setAttribute("password", userSubmission.password());
         return ResponseHandler.generateResponse("Login is successful", HttpStatus.OK, user);
     }
 
@@ -35,8 +33,6 @@ public class AuthController {
     @Transactional
     public ResponseEntity<Object> registration(@RequestBody NewUserSubmission userSubmission, HttpSession session) {
         User user = userService.saveUser(userSubmission);
-        session.setAttribute("email", userSubmission.email()); // може спрацює
-        session.setAttribute("password", userSubmission.password());
         return ResponseHandler.generateResponse("Account has been created", HttpStatus.OK, user);
     }
 }

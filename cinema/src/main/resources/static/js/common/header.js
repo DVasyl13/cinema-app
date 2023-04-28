@@ -6,6 +6,13 @@ const closeRegistrationFormBtn = document.getElementById("close-registration-but
 
 const loginFormPopUpButton = document.getElementById("login-form-button");
 
+const cinemaSelect = document.getElementById("cinemas");
+
+cinemaSelect.addEventListener("change", function() {
+    sessionStorage.setItem('cinema-id', cinemaSelect.value);
+    sessionStorage.setItem('cinema-address', cinemaSelect.options[cinemaSelect.selectedIndex].text);
+});
+
 const shadowBG = document.getElementById("background-popup");
 const controlDisapearingBG = (flag) => {
     (flag)
@@ -37,7 +44,7 @@ closeRegistrationFormBtn.addEventListener('click', () => {
 shadowBG.addEventListener('click', () => {
     document.querySelector(".login-popup").classList.remove("active");
     document.querySelector(".registration-popup").classList.remove("active");
-    controlDisapearingBG(0)
+    controlDisapearingBG(0);
 })
 
 loginFormPopUpButton.addEventListener('click', () => {
@@ -97,15 +104,16 @@ const createNewUser = (data) => {
     })
         .then(response => {
             if (!response.ok) {
-                console.log(response);
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            setUserData(data);
+            removePopUps();
         })
         .catch(error => {
+            document.getElementById('lb-reg').innerHTML='Цей email вже зайнято!';
             console.error('Error:', error);
         });
 }
@@ -135,8 +143,6 @@ const loginUser = () => {
         email: email,
         password: password
     }
-
-    console.log(data);
     verifyUser(data);
 }
 
@@ -150,16 +156,30 @@ const verifyUser = (data) => {
     })
         .then(response => {
             if (!response.ok) {
-                console.log(response);
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            document.getElementById('lb-log').innerHTML='';
+            setUserData(data);
+            removePopUps();
         })
         .catch(error => {
+            document.getElementById('lb-log').innerHTML='Перевірте введені вами поля!';
             console.error('Error:', error);
         });
 
+}
+
+const setUserData = (response) => {
+    sessionStorage.setItem('id', response.data.id);
+    sessionStorage.setItem('name', response.data.name);
+    location.reload();
+}
+
+const removePopUps = () => {
+    document.querySelector(".login-popup").classList.remove("active");
+    document.querySelector(".registration-popup").classList.remove("active");
+    controlDisapearingBG(0);
 }
