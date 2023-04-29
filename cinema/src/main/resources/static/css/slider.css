@@ -1,6 +1,6 @@
 .slider-container {
     margin: 140px 0 120px 0;
-    height: 400px;
+    height: 550px;
     position: relative;
     overflow: hidden;
 }
@@ -18,23 +18,21 @@
     text-align: center;
     position: absolute;
     display: flex;
-    height: 400px;
+    height: 550px;
     width: 100%;
 }
 
 .swiper-slide img {
-    height: 400px;
+    height: 550px;
     width: 100%;
 
     object-fit: cover;
 }
 
 .swiper-slide {
-    max-height: 400px;
     position: relative;
     width: fit-content;
-
-    height: 400px;
+    height: 550px;
 }
 
 .swiper-button-next, .swiper-button-next {
@@ -56,8 +54,8 @@
 
 :root {
     --swiper-theme-color: #ffffff !important;
+    --swiper-navigation-size: 60px !important;
 }
-
 .swiper-button-prev, .swiper-button-next {
     cursor: pointer;
     opacity: 0.5;

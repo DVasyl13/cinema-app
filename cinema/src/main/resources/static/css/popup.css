@@ -3,7 +3,7 @@
     padding: 30px 40px;
     position: fixed;
     width: 400px;
-    height: 315px;
+    height: 345px;
     top: -150%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -19,7 +19,7 @@
     padding: 42px 20px 0 20px;
     position: fixed;
     width: 515px;
-    height: 580px;
+    height: 620px;
     top: -150%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -121,6 +121,10 @@
     right:25px;
     font-size: 30px;
     cursor: pointer;
+}
+#login-label,#registration-label{
+    color: red;
+    font-size: 20px;
 }
 
 .registration-popup h2{

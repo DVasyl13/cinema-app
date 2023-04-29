@@ -54,7 +54,7 @@ loginFormPopUpButton.addEventListener('click', () => {
 });
 
 const resisterNewUser = () => {
-    const label = document.getElementById('lb-reg');
+    const label = document.getElementById('registration-label');
 
     const name = document.getElementById('registration-name').value;
     const surname = document.getElementById('registration-surname').value;
@@ -62,7 +62,7 @@ const resisterNewUser = () => {
     const password = document.getElementById('registration-password').value;
     const dubpassword = document.getElementById('repeat-password').value;
     if (name === '' || surname === '' || email === '' || password === '' || dubpassword === '') {
-        label.innerHTML = 'Заповніть всі поля!';
+        label.innerHTML = '*Заповніть всі поля!';
         return;
     }
     else {
@@ -73,12 +73,12 @@ const resisterNewUser = () => {
         label.innerHTML = '';
     }
     else {
-        label.innerHTML = 'Цей формат емейлу не відповідає нормам!';
+        label.innerHTML = '*Цей формат емейлу не відповідає нормам!';
         return;
     }
 
     if (password !== dubpassword) {
-        label.innerHTML = 'Введені паролі не збігаються!';
+        label.innerHTML = '*Введені паролі не збігаються!';
         return;
     } else {
         label.innerHTML = '';
@@ -113,19 +113,19 @@ const createNewUser = (data) => {
             removePopUps();
         })
         .catch(error => {
-            document.getElementById('lb-reg').innerHTML='Цей email вже зайнято!';
+            document.getElementById('registration-label').innerHTML='*Цей email вже зайнято!';
             console.error('Error:', error);
         });
 }
 
 const loginUser = () => {
-    const label = document.getElementById('lb-log');
+    const label = document.getElementById('login-label');
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     if (email === '' || password === '') {
-        label.innerHTML = 'Заповніть всі поля!';
+        label.innerHTML = '*Заповніть всі поля!';
         return ;
     }
     else {
@@ -136,7 +136,7 @@ const loginUser = () => {
         label.innerHTML = '';
     }
     else {
-        label.innerHTML = 'Цей формат емейлу не відповідає нормам!';
+        label.innerHTML = '*Цей формат емейлу не відповідає нормам!';
         return false;
     }
     const data = {
@@ -161,12 +161,12 @@ const verifyUser = (data) => {
             return response.json();
         })
         .then(data => {
-            document.getElementById('lb-log').innerHTML='';
+            document.getElementById('login-label').innerHTML='';
             setUserData(data);
             removePopUps();
         })
         .catch(error => {
-            document.getElementById('lb-log').innerHTML='Перевірте введені вами поля!';
+            document.getElementById('login-label').innerHTML='*Перевірте введені вами поля!';
             console.error('Error:', error);
         });
 

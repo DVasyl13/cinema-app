@@ -18,21 +18,23 @@ const initializeSlider = (arrayOfMovies) => {
         });
 }
 const createSlider = (arrayOfMovies) => {
-    arrayOfMovies.forEach( function (value, i) {
+    /*arrayOfMovies.forEach( function (value, i) {
         sliderFrames.push({id: i, url: value.widePosterURL});
-    });
+    });*/
 
     const sliderGroup = document.getElementById('swiper-wrapper');
 
-    sliderFrames.forEach((image, index) => {
+    arrayOfMovies.forEach((movie,index) => {
         const slider = document.createElement('div');
         slider.setAttribute('class', 'swiper-slide');
+        const ref = document.createElement('a');
+        ref.setAttribute('href', '/movie/'+movie.id);
         const img = document.createElement('img');
+        img.src = movie.widePosterURL;
         img.id = 'slide-'+index;
-        img.src = image.url;
-        img.alt = `Slide ${image.id}`;
-        slider.appendChild(img);
-
+        img.alt = `Slide ${img.id}`;
+        ref.appendChild(img);
+        slider.appendChild(ref);
         sliderGroup.appendChild(slider);
     });
 }
