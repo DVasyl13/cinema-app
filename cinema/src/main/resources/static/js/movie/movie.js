@@ -1,4 +1,4 @@
-import {initializeHeader} from "../common/header-initializer.js";
+import initializeHeader from "../common/header-initializer.js";
 
 
 window.onload = function () {
@@ -30,8 +30,6 @@ const getMovieDetails = () => {
 }
 
 const showInfo = (data) => {
-    console.log(data);
-
     const wrapper = document.getElementById('movie-box');
 
 

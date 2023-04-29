@@ -3,7 +3,6 @@ let arrayOfCinema = [];
 
 const initializeHeader = () => {
     setAuthorizeButton();
-    setCinemaSelector();
 
     fetch('/api/v1/cinema', {
         method: 'Get'
@@ -16,7 +15,8 @@ const initializeHeader = () => {
         })
         .then(data => {
             arrayOfCinema = data;
-            initializeCinemaList();
+            initializeCinemaList(); // 1
+            setCinemaSelector(); // 2
         })
         .catch(error => {
             console.error('Error:', error);
@@ -39,6 +39,7 @@ const initializeCinemaList = () => {
     });
 }
 
+//TODO: замінити
 const setAuthorizeButton = () => {
     if (sessionStorage.getItem('id') != null ) {
         document.getElementById('main-login-button').remove();
@@ -49,7 +50,7 @@ const setAuthorizeButton = () => {
     }
 }
 
-//TODO: не працює
+
 const setCinemaSelector = () => {
     if (sessionStorage.getItem('cinema-id') != null ) {
         console.log(sessionStorage.getItem('cinema-id'));
@@ -58,4 +59,4 @@ const setCinemaSelector = () => {
     }
 }
 
-export {initializeHeader};
+export default initializeHeader

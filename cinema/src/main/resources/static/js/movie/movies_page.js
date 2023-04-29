@@ -1,4 +1,4 @@
-import {initializeHeader} from "../common/header-initializer.js";
+import initializeHeader from "../common/header-initializer.js";
 
 let movies = [];
 

@@ -1,4 +1,3 @@
-const sliderFrames = [];
 const initializeSlider = (arrayOfMovies) => {
     fetch('/api/v1/movie', {
         method: 'Get'
@@ -18,9 +17,6 @@ const initializeSlider = (arrayOfMovies) => {
         });
 }
 const createSlider = (arrayOfMovies) => {
-    /*arrayOfMovies.forEach( function (value, i) {
-        sliderFrames.push({id: i, url: value.widePosterURL});
-    });*/
 
     const sliderGroup = document.getElementById('swiper-wrapper');
 

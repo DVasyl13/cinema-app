@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script defer src="/js/contact_service.js"></script>
     <title>QUAD Cinema</title>
 </head>
 <body>
@@ -27,13 +26,10 @@
     </div>
     <nav>
         <ul class="main-nav">
-            <a th:href="@{/soon}">
-                <li>Скоро</li>
-            </a>
             <a th:href="@{/movie}">
                 <li>Фільми</li>
             </a>
-            <a th:href="@{/soon}">
+            <a>
                 <li>Розклад сеансів</li>
             </a>
             <a th:href="@{/info}">
@@ -117,4 +113,6 @@
             </ul>
         </div>
     </footer>
+<script src="/js/common/header.js"></script>
+<script type="module" src="/js/contact/contacts.js"></script>
 </body>
