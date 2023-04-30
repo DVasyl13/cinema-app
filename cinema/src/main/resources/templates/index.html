@@ -43,7 +43,13 @@
         </ul>
     </nav>
     <button id="main-login-button">Увійти</button>
-    <button hidden id="user-button"></button>
+    <div class="dropdown">
+        <button hidden id="user-button"></button>
+        <div class="dropdown-content">
+            <a th:href="@{/account-managment}">Управління акаутом</a>
+            <a th:href="@{/booking}">Ваші замовлення</a>
+        </div>
+    </div>
 </header>
 <div class="login-popup">
     <div id="login-form">

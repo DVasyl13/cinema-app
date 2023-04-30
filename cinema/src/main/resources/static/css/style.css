@@ -119,15 +119,6 @@ body {
     padding: 12px 46px;
 }
 
-.dropbtn {
-    background-color: black;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;

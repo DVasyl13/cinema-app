@@ -8,6 +8,8 @@ const loginFormPopUpButton = document.getElementById("login-form-button");
 
 const cinemaSelect = document.getElementById("cinemas");
 
+const userButton = document.getElementById("user-button");
+
 cinemaSelect.addEventListener("change", function() {
     sessionStorage.setItem('cinema-id', cinemaSelect.value);
     sessionStorage.setItem('cinema-address', cinemaSelect.options[cinemaSelect.selectedIndex].text);

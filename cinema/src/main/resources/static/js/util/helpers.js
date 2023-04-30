@@ -33,4 +33,13 @@ const getDate = (startDate,endDate) => {
     return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
 }
 
-export {shuffle, getDate}
+function redirect(endpoint){
+    let paths = window.location;
+    let url = `${paths.origin}/${endpoint}`;
+    return url;
+
+//for page redirect use window.location.href = url
+}
+
+
+export {shuffle, getDate, redirect}

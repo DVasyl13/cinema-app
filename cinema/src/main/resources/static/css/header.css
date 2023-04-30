@@ -44,9 +44,6 @@ header ul li{
     transition: 0.5s;
 
 }
-.dropbtn{
-    font-size: 20px;
-}
 
 .dropdown select {
     color: #fff;
@@ -68,7 +65,7 @@ header ul li{
 }
 
 
-#main-login-button, #user-button{
+#main-login-button , #user-button{
     margin-right: 100px;
     margin-bottom: 6px;
     font-size: 22px;
