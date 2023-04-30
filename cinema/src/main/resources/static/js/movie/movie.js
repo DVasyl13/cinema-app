@@ -1,5 +1,5 @@
 import initializeHeader from "../common/header-initializer.js";
-
+import {getDate} from "../util/helpers.js";
 
 window.onload = function () {
     initializeHeader();
@@ -114,15 +114,4 @@ const showInfo = (data) => {
 
     wrapper.appendChild(imageContainer);
     wrapper.appendChild(info);
-}
-
-const getDate = (startDate,endDate) => {
-    const monthString = ["cічня","лютого","березня","квітня","травня","червня","липня","серпня","вересня","жовтня","листопада","грудня"]
-    const startDateObject = new Date(startDate);
-    const endDateObject = new Date(endDate);
-    const startMonth = monthString[startDateObject.getMonth()]
-    const endMonth = monthString[endDateObject.getMonth()]
-    const startDay = startDateObject.getDate();
-    const endDay = endDateObject.getDate();
-    return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
 }

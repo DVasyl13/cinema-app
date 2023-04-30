@@ -1,3 +1,5 @@
+import {shuffle} from "../util/helpers.js";
+
 const initializeSlider = (arrayOfMovies) => {
     fetch('/api/v1/movie', {
         method: 'Get'
@@ -9,8 +11,8 @@ const initializeSlider = (arrayOfMovies) => {
             return response.json();
         })
         .then(data => {
-            arrayOfMovies = data;
-            createSlider(arrayOfMovies)
+            arrayOfMovies = shuffle(data);
+            createSlider(arrayOfMovies);
         })
         .catch(error => {
             console.error('Error:', error);

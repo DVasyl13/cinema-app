@@ -1,6 +1,5 @@
 import initializeHeader from "../common/header-initializer.js";
-
-let movies = [];
+import {shuffle} from "../util/helpers.js";
 
 window.onload = function() {
     initializeHeader();
@@ -26,8 +25,7 @@ const getMoviesDetails = () => {
 }
 
 const showInfo = (data) => {
-    console.log(data);
-
+    let movies = [];
     data.forEach( function (value) {
         movies.push({
             id: value.id,
@@ -40,6 +38,7 @@ const showInfo = (data) => {
         });
     });
 
+    movies = shuffle(movies);
     const moviesBox = document.getElementById('movie-card-box');
 
     data.forEach((movie, index) => {

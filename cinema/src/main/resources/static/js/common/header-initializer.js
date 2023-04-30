@@ -39,14 +39,12 @@ const initializeCinemaList = () => {
     });
 }
 
-//TODO: замінити
 const setAuthorizeButton = () => {
     if (sessionStorage.getItem('id') != null ) {
-        document.getElementById('main-login-button').remove();
-        const button = document.createElement('button');
-        button.setAttribute('id', 'user-button');
+        document.getElementById('main-login-button').hidden = true;
+        const button = document.getElementById('user-button');
+        button.hidden = false;
         button.innerHTML = sessionStorage.getItem('name');
-        document.getElementById('header').appendChild(button);
     }
 }
 

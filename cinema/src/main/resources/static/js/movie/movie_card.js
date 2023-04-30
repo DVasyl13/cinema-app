@@ -1,8 +1,6 @@
+import {getDate, shuffle} from "../util/helpers.js";
+
 let arrayOfMovies = [];
-const movieCards = [];
-
-
-
 
 function initializeMovieCards ()  {
     fetch('/api/v1/movie', {
@@ -21,11 +19,11 @@ function initializeMovieCards ()  {
         .catch(error => {
             console.error('Error:', error);
         });
-    return arrayOfMovies;
 }
 
 
 const createMovieCards = () => {
+    let movieCards = [];
     arrayOfMovies.forEach( function (value) {
         movieCards.push({
             id: value.id,
@@ -39,6 +37,7 @@ const createMovieCards = () => {
             endShowDate: value.endShowDate
         });
     });
+    movieCards = shuffle(movieCards);
 
     const movieFlexBox = document.getElementById('card-container');
     movieCards.forEach((movie, index) => {
@@ -101,17 +100,6 @@ const createMovieCards = () => {
         ref.appendChild(card);
         movieFlexBox.appendChild(ref);
     });
-}
-
-const getDate = (startDate,endDate) => {
-    const monthString = ["cічня","лютого","березня","квітня","травня","червня","липня","серпня","вересня","жовтня","листопада","грудня"]
-    const startDateObject = new Date(startDate);
-    const endDateObject = new Date(endDate);
-    const startMonth = monthString[startDateObject.getMonth()]
-    const endMonth = monthString[endDateObject.getMonth()]
-    const startDay = startDateObject.getDate();
-    const endDay = endDateObject.getDate();
-    return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
 }
 
 export default initializeMovieCards;
