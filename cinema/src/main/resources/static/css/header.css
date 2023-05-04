@@ -1,7 +1,9 @@
 header{
+    font-family: 'Poppins', sans-serif !important;
     position: fixed;
     top: 0;
     width: 100%;
+    height: 100px;
     background-color: black;
     opacity: 0.95;
     color: white;
@@ -13,8 +15,13 @@ header{
 }
 
 header img {
-    width: 6em;
+    width: 120px;
+    height: 90px;
     margin: 0 20px;
+}
+.logo{
+    width: 160px;
+    height: 98px;
 }
 
 header nav{
@@ -47,6 +54,7 @@ header ul li{
 
 .dropdown select {
     color: #fff;
+    margin-left: 20px;
     font: bold 14px/1.4 'Open Sans', arial, sans-serif;
     text-decoration: none;
     letter-spacing: 0.15em;

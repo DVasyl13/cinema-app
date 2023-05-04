@@ -10,13 +10,15 @@
     <link rel="stylesheet" type="text/css" href="/css/all-movies.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
     <title>QUAD Cinema</title>
 </head>
 <body>
 <div id="background-popup"></div>
 <header id="header">
-    <a th:href="@{/}">
+    <a th:href="@{/}" class="logo">
         <img src="/img/logo.png" alt="logo">
     </a>
     <div class="dropdown">
@@ -70,6 +72,7 @@
 </div>
 
     <main>
+
         <div id="movie-card-box" class="filmsWrapper">
 <!--            <div class="card">-->
 <!--                <div class="poster">-->
@@ -90,6 +93,7 @@
 <!--            </div>-->
         </div>
     </main>
+<footer></footer>
 
 <script src="/js/common/header.js"></script>
 <script type="module" src="/js/movie/movies_page.js"></script>

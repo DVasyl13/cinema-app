@@ -1,7 +1,5 @@
-*, *::after, *::before {
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+body{
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -40,7 +38,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(161, 161, 161, 0.85);
+    background-color: rgba(161, 161, 161, 0.9);
     transition: opacity 0.3s ease-out;
     opacity: 0;
     z-index: 1;
@@ -49,10 +47,8 @@ body {
 }
 
 .film-title{
-    padding-top: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 15px;
     font-size: 1.3rem;
     text-align: center;
 }
@@ -63,18 +59,18 @@ body {
 }
 
 .description{
-    padding: 5px 0 0 30px;
+    margin: 0 25px 5px 30px;
     font-size: 1.05rem;
 }
 
 .info-type {
-    padding: 40px 0 0 30px;
+    margin: 20px 25px 0 30px;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
 .date {
-    margin-top: 80px;
+    margin-top: 30px;
     text-align: center;
     font-weight: bold;
 }

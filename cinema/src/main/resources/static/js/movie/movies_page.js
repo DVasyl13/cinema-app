@@ -49,6 +49,7 @@ const showInfo = (data) => {
         card.setAttribute('class', 'card');
 
         const poster = document.createElement('div');
+        poster.setAttribute('class','poster')
         const img = document.createElement('img');
         img.setAttribute('src', movie.widePosterURL);
         img.setAttribute('alt', 'bigLogo');
@@ -58,18 +59,19 @@ const showInfo = (data) => {
         info.setAttribute('class', 'information');
 
         const title = document.createElement('h1');
+        title.setAttribute('class','title');
         title.innerHTML = movie.title;
         info.appendChild(title);
 
         const ageLimit = document.createElement('p');
-        ageLimit.setAttribute('class','bold-text');
+        ageLimit.setAttribute('class','age');
         const spanAgeLimit = document.createElement('span');
         spanAgeLimit.innerHTML = movie.ageLimit + '+';
         ageLimit.appendChild(spanAgeLimit);
         info.appendChild(ageLimit);
 
         const duration = document.createElement('p');
-        duration.setAttribute('class','bold-text');
+        duration.setAttribute('class','duration');
         const spanDuration = document.createElement('span');
         spanDuration.innerHTML = movie.duration + ' хв';
         duration.textContent = 'Тривалість: ';
@@ -77,7 +79,7 @@ const showInfo = (data) => {
         info.appendChild(duration);
 
         const genres = document.createElement('p');
-        genres.setAttribute('class','bold-text');
+        genres.setAttribute('class','genres');
         const spanGenres = document.createElement('span');
         genres.textContent = 'Жанр: ';
 
@@ -89,7 +91,7 @@ const showInfo = (data) => {
         info.appendChild(genres);
 
         const description = document.createElement('p');
-        description.setAttribute('class','movieDescription');
+        description.setAttribute('class','description');
         description.textContent = movie.description;
         info.appendChild(description);
 
