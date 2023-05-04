@@ -1,8 +1,4 @@
 
-body{
-    color: white;
-    font-size: 1.2em;
-}
 
 .link-tree{
     display: flex;
@@ -15,6 +11,7 @@ a{
 }
 
 .wrapper{
+    font-family: 'Montserrat', sans-serif !important;
     display: flex;
     justify-content: center;
     max-width: 1440px;
@@ -32,28 +29,116 @@ a{
 
 }
 .wrapper{
-    margin-top: 150px;
+    margin-top: 20px;
 }
 
 
 
 #image-container{
-    margin: 100px 100px 0 100px;
+    margin: 30px 10px 0 50px;
     height: 300px;
     width: 400px;
 }
 #image-container img{
     position: relative;
-    border-radius: 20px;
-    height: 500px;
+    border-radius: 15px;
+    height: 440px;
     width: 300px;
 }
 
+.nav-container{
+    margin: 140px 0 10px 10px;
+    list-style: none;
+    display: table;
+}
+.arrow{
+    color: #fff;
+    position: relative;
+    top:2px;
+    font-size: 20px !important;
+}
+.nav-container li{
+    color: #eaeaea;
+    display: table-cell;
+    position: relative;
+    padding: 0 10px 0 10px;
+    font-size: 21px;
+    font-weight: 10;
+    list-style: none;
+}
+.nav-movie-title{
+    color: #a6a6a6;
+    font-size: 21px;
+    font-weight: 10;
+}
+.movie-title{
+    color: #fff;
+}
 .info-section{
     width: 70%;
 }
+.description{
+    color: #d0d0d0;
+    margin: 0 25px 5px 0;
+    font-size: 18px;
+    font-weight: 100;
+}
 
+.info-type {
+    color: #fff;
+    margin: 20px 25px 0 0;
+    font-size: 20px;
+    font-weight: 999;
+}
+.tickets-container{
+    position: relative;
+    margin-top: 40px;
+    height: 150px;
+    width: 100%
+}
+.tickets-wrapper{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin: 40px 100px 100px 33%;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+    border-color: #fff;
+    height: 100%;
+    width: 720px;
+}
+.ticket{
+    position: relative;
+    border-style: solid;
+    margin-top: 21px;
+    margin-left: 10px;
+    width: 170px;
+    border-width: 2px;
+    border-radius: 30px;
+    background-color: #fff;
+    height: 70%;
+}
+.ticket:first-child{
+    margin-left: 50px;
+}
+.movie-time{
+    font-size: 25px;
+    margin: 25px 0 0 54px;
+    color:black;
+    font-weight: bold;
+
+}
+
+.ticket-price{
+    color:black;
+    font-size: 18px;
+    margin: 10px 0 0 56px;
+}
 #movie-description{
-    font-weight: 500;
-    max-width: 80%;
+    color: #d0d0d0;
+    font-size: 19px;
+    font-weight: 100;
+
 }

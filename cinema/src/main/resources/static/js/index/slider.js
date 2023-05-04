@@ -22,18 +22,19 @@ const createSlider = (arrayOfMovies) => {
 
     const sliderGroup = document.getElementById('swiper-wrapper');
 
-    arrayOfMovies.forEach((movie,index) => {
+    for( let a = 0; a < 4; a++) {
+        let movie = arrayOfMovies[a];
         const slider = document.createElement('div');
         slider.setAttribute('class', 'swiper-slide');
         const ref = document.createElement('a');
         ref.setAttribute('href', '/movie/'+movie.id);
         const img = document.createElement('img');
         img.src = movie.widePosterURL;
-        img.id = 'slide-'+index;
+        img.id = 'slide-'+ a;
         img.alt = `Slide ${img.id}`;
         ref.appendChild(img);
         slider.appendChild(ref);
         sliderGroup.appendChild(slider);
-    });
+    }
 }
 export default initializeSlider

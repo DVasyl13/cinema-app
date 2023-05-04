@@ -62,14 +62,26 @@
 
 }
 
-#login-popup-button, #create-account-button{
+#login-popup-button{
     background-color: #0e224d;
     color: #fff;
     border-style: none;
     border-radius: 50px;
     font-size: larger;
     padding: 12px 25px;
-    width: 220px;
+    width: 230px;
+    height: 60px;
+    margin: 12px auto;
+    cursor: pointer;
+}
+#create-account-button{
+    background-color: #0e224d;
+    color: #fff;
+    border-style: none;
+    border-radius: 50px;
+    font-size: larger;
+    padding: 12px 25px;
+    width: 250px;
     height: 60px;
     margin: 12px auto;
     cursor: pointer;

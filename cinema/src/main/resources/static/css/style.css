@@ -38,7 +38,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(161, 161, 161, 0.9);
+    background-color: rgba(161, 161, 161, 0.85);
     transition: opacity 0.3s ease-out;
     opacity: 0;
     z-index: 1;
