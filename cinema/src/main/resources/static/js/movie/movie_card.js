@@ -37,7 +37,7 @@ const createMovieCards = () => {
             endShowDate: value.endShowDate
         });
     });
-    movieCards = shuffle(movieCards);
+
 
     const movieFlexBox = document.getElementById('card-container');
     movieCards.forEach((movie, index) => {
