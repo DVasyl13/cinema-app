@@ -1,5 +1,7 @@
 package com.lab.app.controller.api;
 
+import com.lab.app.dto.MovieDTO;
+import com.lab.app.dto.MovieFullDTO;
 import com.lab.app.entity.Movie;
 import com.lab.app.service.MovieService;
 import lombok.RequiredArgsConstructor;
@@ -19,13 +21,13 @@ public class MovieController {
     private final MovieService movieService;
 
     @GetMapping
-    public List<Movie> getMovie() {
+    public List<MovieDTO> getMovie() {
         return movieService.getAllMovies();
     }
 
     @GetMapping
     @RequestMapping("/{id}")
-    public Movie getMovieById(@PathVariable Long id) {
+    public MovieFullDTO getMovieById(@PathVariable Long id) {
         return movieService.getMovieById(id);
     }
 }

@@ -38,6 +38,7 @@ public class Booking {
     @JoinColumn(name = "showtime_id", referencedColumnName = "id",
                         insertable = false, updatable = false,
             foreignKey = @ForeignKey(name = "FK_booking_showtime"))
+    @JsonBackReference
     private Showtime showtime;
 
     public Booking(Double totalPrice, User user) {

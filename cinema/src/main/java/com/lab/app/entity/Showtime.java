@@ -1,7 +1,7 @@
 package com.lab.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.lab.app.util.enums.Format;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,9 +23,6 @@ public class Showtime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "format", nullable = false)
-    private Format format;
-
     @Column(name = "start_time", nullable = false)
     private Date startTime;
 
@@ -33,6 +30,7 @@ public class Showtime {
     private Date endTime;
 
     @OneToMany(mappedBy = "showtime", orphanRemoval = true)
+    @JsonManagedReference
     private List<Booking> bookings = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.ALL)

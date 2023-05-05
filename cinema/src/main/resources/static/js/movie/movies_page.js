@@ -26,10 +26,12 @@ const getMoviesDetails = () => {
 
 const showInfo = (data) => {
     let movies = [];
+    console.log(data);
+
     data.forEach( function (value) {
         movies.push({
             id: value.id,
-            widePosterURL: value.widePosterURL,
+            widePosterURL: value.widePosterUrl,
             title: value.title,
             ageLimit: value.ageLimit,
             description: value.description,
@@ -41,7 +43,7 @@ const showInfo = (data) => {
     movies = shuffle(movies);
     const moviesBox = document.getElementById('movie-card-box');
 
-    data.forEach((movie, index) => {
+    movies.forEach((movie, index) => {
         const ref = document.createElement('a');
         ref.setAttribute('href', '/movie/'+movie.id);
 
@@ -99,5 +101,6 @@ const showInfo = (data) => {
         card.appendChild(info);
         ref.appendChild(card);
         moviesBox.appendChild(ref);
+        console.log(ref);
     });
 }

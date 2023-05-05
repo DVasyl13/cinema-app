@@ -4,6 +4,7 @@ import {getDate} from "../util/helpers.js";
 window.onload = function () {
     initializeHeader();
     getMovieDetails();
+    initShowtimes();
 }
 
 const getMovieDetails = () => {
@@ -23,6 +24,7 @@ const getMovieDetails = () => {
         })
         .then(data => {
             showInfo(data);
+            initShowtimes(data.showtimes);
         })
         .catch(error => {
             console.error('Error:', error);
@@ -80,7 +82,7 @@ const showInfo = (data) => {
     showTimePeriod.setAttribute('class','info-type');
     const spanShowTimePeriod = document.createElement('span');
     spanShowTimePeriod.setAttribute('class','description');
-    spanShowTimePeriod.innerHTML = getDate(data.startShowDate, data.endShowDate);
+    spanShowTimePeriod.innerHTML = getDate(data.startShowDate, data.endShowDate, 1);
     showTimePeriod.textContent = 'Період прокату: '
     showTimePeriod.appendChild(spanShowTimePeriod);
     info.appendChild(showTimePeriod);
@@ -142,4 +144,35 @@ const showInfo = (data) => {
 
     wrapper.appendChild(imageContainer);
     wrapper.appendChild(info);
+}
+
+const initShowtimes = (data) => {
+    const cinemaId = sessionStorage.getItem("cinema-id");
+    data = data.filter(a => a.cinemaId != cinemaId);
+    const ticketWrapper = document.querySelector(".tickets-wrapper");
+    let href = window.location.href;
+    let id = href
+        .substring(href.lastIndexOf('/'))
+        .replace(/[^\d.]/g, '');
+    data.forEach((e) => {
+        const ref = document.createElement("a");
+        ref.setAttribute("class", "ticket");
+        ref.setAttribute("href", "/movie/" + id + "/booking/" + e.id);
+
+        const ticket = document.createElement("div");
+
+        const time = document.createElement("p");
+        time.setAttribute("class", "movie-time");
+        time.innerHTML = getDate(e.startTime, e.endTime, 0) + ' '
+            + new Date(e.startTime).getHours() + ':' + new Date(e.startTime).getMinutes();
+
+        const price = document.createElement("p");
+        price.setAttribute("class", "ticket-price");
+        price.innerHTML = "140";
+
+        ticket.appendChild(time);
+        ticket.appendChild(price);
+        ref.appendChild(ticket);
+        ticketWrapper.appendChild(ref);
+    });
 }

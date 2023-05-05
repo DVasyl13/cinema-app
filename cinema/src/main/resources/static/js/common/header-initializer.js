@@ -14,6 +14,7 @@ const initializeHeader = () => {
             return response.json();
         })
         .then(data => {
+            console.log(data);
             arrayOfCinema = data;
             initializeCinemaList(); // 1
             setCinemaSelector(); // 2
@@ -51,9 +52,12 @@ const setAuthorizeButton = () => {
 
 const setCinemaSelector = () => {
     if (sessionStorage.getItem('cinema-id') != null ) {
-        console.log(sessionStorage.getItem('cinema-id'));
         const cinemaSelector = document.getElementById('cinemas');
         cinemaSelector.value = sessionStorage.getItem('cinema-id');
+    } else {
+        console.log(cinemaSelect.value);
+        sessionStorage.setItem('cinema-id', cinemaSelect.value);
+        sessionStorage.setItem('cinema-address', cinemaSelect.options[cinemaSelect.selectedIndex].text);
     }
 }
 

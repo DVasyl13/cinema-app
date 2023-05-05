@@ -38,7 +38,6 @@ public class Movie {
     private Integer duration;
 
     @Column(name = "rating")
-
     private Float rating;
 
     @Column(name = "age_limit")

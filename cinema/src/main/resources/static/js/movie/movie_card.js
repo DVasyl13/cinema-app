@@ -13,6 +13,7 @@ function initializeMovieCards ()  {
             return response.json();
         })
         .then(data => {
+            console.log(data);
             arrayOfMovies = data;
             createMovieCards();
         })
@@ -93,7 +94,7 @@ const createMovieCards = () => {
 
         const date = document.createElement('p');
         date.setAttribute('class', 'date');
-        date.innerHTML = getDate(movie.startShowDate,movie.endShowDate);
+        date.innerHTML = getDate(movie.startShowDate,movie.endShowDate, 1);
         cardBody.appendChild(date);
 
         card.appendChild(cardBody);

@@ -11,7 +11,7 @@ function shuffle(array) {
 }
 
 
-const getDate = (startDate,endDate) => {
+const getDate = (startDate,endDate, flag) => {
     const monthString = ["cічня",
                         "лютого",
                         "березня",
@@ -30,8 +30,16 @@ const getDate = (startDate,endDate) => {
     const endMonth = monthString[endDateObject.getMonth()];
     const startDay = startDateObject.getDate();
     const endDay = endDateObject.getDate();
-    return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
+
+    if (flag) {
+        return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
+    } else {
+        return `${startDay} ${startMonth}`;
+    }
 }
+
+
+
 
 function redirect(endpoint){
     let paths = window.location;

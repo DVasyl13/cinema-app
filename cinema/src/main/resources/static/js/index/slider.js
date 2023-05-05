@@ -12,6 +12,7 @@ const initializeSlider = (arrayOfMovies) => {
         })
         .then(data => {
             arrayOfMovies = shuffle(data);
+            console.log(arrayOfMovies);
             createSlider(arrayOfMovies);
         })
         .catch(error => {
@@ -29,7 +30,8 @@ const createSlider = (arrayOfMovies) => {
         const ref = document.createElement('a');
         ref.setAttribute('href', '/movie/'+movie.id);
         const img = document.createElement('img');
-        img.src = movie.widePosterURL;
+        console.log(movie.widePosterUrl);
+        img.src = movie.widePosterUrl;
         img.id = 'slide-'+ a;
         img.alt = `Slide ${img.id}`;
         ref.appendChild(img);

@@ -21,4 +21,10 @@ public class MoviesController {
     public String getMoviePage(@PathVariable String id) {
         return "movie";
     }
+
+    @GetMapping
+    @RequestMapping("/{movieId}/booking/{id}")
+    public String getBookingPage(@PathVariable String movieId, @PathVariable String id) {
+        return "booking";
+    }
 }
