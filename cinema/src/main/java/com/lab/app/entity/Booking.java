@@ -9,12 +9,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "booking")
 @Getter @Setter
-@ToString(exclude = {"user", "showtime"})
+@ToString(exclude = { "showtime"})
 @NoArgsConstructor
 public class Booking {
     @Id
@@ -26,13 +28,13 @@ public class Booking {
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Seat> seats = new ArrayList<>();
+    private Set<Seat> seats = new HashSet<>();
 
-    @ManyToOne
+  /*  @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false,
                 foreignKey = @ForeignKey(name = "FK_booking_user"))
     @JsonBackReference
-    private User user;
+    private User user;*/
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "showtime_id", referencedColumnName = "id",
@@ -41,11 +43,11 @@ public class Booking {
     @JsonBackReference
     private Showtime showtime;
 
-    public Booking(Double totalPrice, User user) {
+ /*   public Booking(Double totalPrice, User user) {
         this.totalPrice = totalPrice;
         this.user = user;
         // ?? seats ?? showtime
-    }
+    }*/
     public void addSeat(Seat seat) {
         seat.setBooking(this);
         seats.add(seat);

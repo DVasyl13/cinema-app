@@ -4,7 +4,6 @@ import {getDate} from "../util/helpers.js";
 window.onload = function () {
     initializeHeader();
     getMovieDetails();
-    initShowtimes();
 }
 
 const getMovieDetails = () => {
@@ -148,7 +147,9 @@ const showInfo = (data) => {
 
 const initShowtimes = (data) => {
     const cinemaId = sessionStorage.getItem("cinema-id");
-    data = data.filter(a => a.cinemaId != cinemaId);
+    console.log(data);
+    data = data.filter(a => a.cinemaId == cinemaId);
+    console.log(data)
     const ticketWrapper = document.querySelector(".tickets-wrapper");
     let href = window.location.href;
     let id = href
@@ -163,8 +164,13 @@ const initShowtimes = (data) => {
 
         const time = document.createElement("p");
         time.setAttribute("class", "movie-time");
+        let minutes = new Date(e.startTime).getMinutes();
+        let minutesStr = '' + minutes;
+        if(minutes < 10 ){
+            minutesStr  = '0'+ minutes;
+        }
         time.innerHTML = getDate(e.startTime, e.endTime, 0) + ' '
-            + new Date(e.startTime).getHours() + ':' + new Date(e.startTime).getMinutes();
+            + new Date(e.startTime).getHours() + ':' + minutesStr;
 
         const price = document.createElement("p");
         price.setAttribute("class", "ticket-price");

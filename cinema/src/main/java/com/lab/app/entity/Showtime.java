@@ -29,18 +29,18 @@ public class Showtime {
     @Column(name = "end_time", nullable = false)
     private Date endTime;
 
-    @OneToMany(mappedBy = "showtime", orphanRemoval = true)
+    @OneToMany(mappedBy = "showtime", orphanRemoval = true,  fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Booking> bookings = new ArrayList<>();
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
     @JsonBackReference
     @JoinColumn(name = "movie_id", referencedColumnName = "id",
             insertable = false, updatable = false,
             foreignKey = @ForeignKey(name = "FK_showtime_movie"))
     private Movie movie;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
     @JsonBackReference
     @JoinColumn(name = "cinema_hall_id", referencedColumnName = "id",
             insertable = false, updatable = false,

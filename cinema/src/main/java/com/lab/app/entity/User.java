@@ -36,14 +36,9 @@ public class User {
     @Column(name = "role")
     private Role role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany( cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Booking> bookings = new ArrayList<>();
-
-    public void addBooking(Booking booking) {
-        booking.setUser(this);
-        bookings.add(booking);
-    }
 
     public User(String name, String surname, String password, String email) {
         this.name = name;

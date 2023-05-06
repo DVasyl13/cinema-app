@@ -31,7 +31,7 @@ const showInfo = (data) => {
     data.forEach( function (value) {
         movies.push({
             id: value.id,
-            widePosterURL: value.widePosterUrl,
+            widePosterURL: value.widePosterURL,
             title: value.title,
             ageLimit: value.ageLimit,
             description: value.description,

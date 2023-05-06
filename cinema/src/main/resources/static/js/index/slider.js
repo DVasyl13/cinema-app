@@ -1,6 +1,6 @@
 import {shuffle} from "../util/helpers.js";
 
-const initializeSlider = (arrayOfMovies) => {
+const initializeSlider = () => {
     fetch('/api/v1/movie', {
         method: 'Get'
     })
@@ -11,7 +11,7 @@ const initializeSlider = (arrayOfMovies) => {
             return response.json();
         })
         .then(data => {
-            arrayOfMovies = shuffle(data);
+            let arrayOfMovies = shuffle(data);
             console.log(arrayOfMovies);
             createSlider(arrayOfMovies);
         })
@@ -30,8 +30,7 @@ const createSlider = (arrayOfMovies) => {
         const ref = document.createElement('a');
         ref.setAttribute('href', '/movie/'+movie.id);
         const img = document.createElement('img');
-        console.log(movie.widePosterUrl);
-        img.src = movie.widePosterUrl;
+        img.src = movie.widePosterURL;
         img.id = 'slide-'+ a;
         img.alt = `Slide ${img.id}`;
         ref.appendChild(img);

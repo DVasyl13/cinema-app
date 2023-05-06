@@ -13,6 +13,7 @@ const userButton = document.getElementById("user-button");
 cinemaSelect.addEventListener("change", function() {
     sessionStorage.setItem('cinema-id', cinemaSelect.value);
     sessionStorage.setItem('cinema-address', cinemaSelect.options[cinemaSelect.selectedIndex].text);
+    location.reload();
 });
 
 const shadowBG = document.getElementById("background-popup");

@@ -1,3 +1,5 @@
+import initializeHeader from "../common/header-initializer.js";
+
 let seats;
 const seatContainer = document.querySelector(".row-container");
 const total = document.getElementById("total");
@@ -7,6 +9,7 @@ const columns = 12;
 
 
 window.onload = () => {
+    initializeHeader();
     getMovieInfo();
     initialize();
     //populateUI();

@@ -16,7 +16,7 @@
 <body>
 <div id="background-popup"></div>
 <header id="header">
-    <a th:href="@{/}">
+    <a th:href="@{/}" class="logo">
         <img src="/img/logo.png" alt="logo">
     </a>
     <div class="dropdown">
@@ -26,6 +26,7 @@
     </div>
     <nav>
         <ul class="main-nav">
+
             <a th:href="@{/movie}">
                 <li>Фільми</li>
             </a>
@@ -38,7 +39,13 @@
         </ul>
     </nav>
     <button id="main-login-button">Увійти</button>
-    <button hidden id="user-button"></button>
+    <div class="dropdown">
+        <button hidden id="user-button"></button>
+        <div class="dropdown-content">
+            <a th:href="@{/account-managment}">Управління акаутом</a>
+            <a th:href="@{/booking}">Ваші замовлення</a>
+        </div>
+    </div>
 </header>
 <div class="login-popup">
     <div id="login-form">
@@ -46,7 +53,7 @@
         <h2>Вхід</h2>
         <input type="email" class="input-field" name="email" id="email" placeholder="Email">
         <input type="password" class="input-field" name="password" id="password" placeholder="Пароль">
-        <label id="lb-log"></label>
+        <label id="login-label"></label>
         <button id="login-popup-button" onclick="loginUser()">Увійти</button>
         <button id="registration-popup-button">Реєстрація</button>
     </div>
@@ -63,7 +70,7 @@
         <input type="password" class="input-field" name="password" id="registration-password" placeholder="Пароль">
         <input type="password" class="input-field" name="repeat-password" id="repeat-password"
                placeholder="Підтвердження пароля">
-        <label id="lb-reg"></label>
+        <label id="registration-label"></label>
         <button id="create-account-button" onclick="resisterNewUser()">Зареєструватися</button>
         <button id="login-form-button"> Увійти в обліковий запис</button>
     </div>
@@ -125,6 +132,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="/js/common/header.js"></script>
 <script type="module" src="/js/booking/booking.js"></script>

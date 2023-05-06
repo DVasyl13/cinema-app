@@ -12,7 +12,7 @@ import java.util.*;
 @Entity
 @Table(name = "movie")
 @Getter @Setter
-@ToString(exclude = "showtimeList")
+@ToString
 @NoArgsConstructor
 public class Movie {
     @Id
@@ -66,13 +66,7 @@ public class Movie {
     @ManyToMany(mappedBy = "movies")
     @JsonManagedReference
     private Set<Genre> genres = new HashSet<>();
-    @OneToMany(mappedBy = "movie", orphanRemoval = true)
-    @JsonManagedReference
-    private List<Showtime> showtimeList = new ArrayList<>();
 
-    public void addShowtime(Showtime showtime) {
-        showtime.setMovie(this);
-        showtimeList.add(showtime);
-    }
+
 }
 

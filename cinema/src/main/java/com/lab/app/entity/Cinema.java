@@ -8,7 +8,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "cinema")
@@ -31,6 +33,6 @@ public class Cinema {
 
     @OneToMany(mappedBy = "cinema", orphanRemoval = true)
     @JsonManagedReference
-    private List<CinemaHall> cinemaHallList = new ArrayList<>();;
+    private Set<CinemaHall> cinemaHallList = new HashSet<>();;
 
 }

@@ -2,6 +2,8 @@ package com.lab.app.service;
 
 import com.lab.app.controller.exception.MovieNotFoundException;
 import com.lab.app.dto.*;
+import com.lab.app.entity.Movie;
+import com.lab.app.entity.Showtime;
 import com.lab.app.repository.MovieRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -10,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StopWatch;
 
 import java.math.BigInteger;
 import java.sql.Timestamp;
@@ -30,46 +33,9 @@ public class MovieService {
 
     @Cacheable("movies")
     @Transactional(readOnly = true)
-    public List<MovieDTO> getAllMovies() {
-        String sql = "SELECT m.id, m.description, m.duration, m.poster_url," +
-                " m.rating, m.release_date, m.title, m.trailer_url, m.age_limit," +
-                " m.wide_poster_url, m.start_show_date, m.end_show_date," +
-                " m.movie_picture_url, g.id, g.name" +
-                " FROM cinema.movie m " +
-                " JOIN cinema.movie_genre mg ON m.id = mg.movie_id " +
-                " JOIN cinema.genre g ON mg.genre_id = g.id";
-        Query query = entityManager.createNativeQuery(sql);
-        List<Object[]> results = query.getResultList();
-        Map<Long, MovieDTO> movieDTOMap = new HashMap<>();
-
-        for (Object[] result : results) {
-            Long movieId = ((Number) result[0]).longValue();
-
-            if (!movieDTOMap.containsKey(movieId)) {
-                String description = (String) result[1];
-                Integer duration = ((Number) result[2]).intValue();
-                String posterUrl = (String) result[3];
-                Float rating = ((Number) result[4]).floatValue();
-                Timestamp releaseDate = (Timestamp) result[5];
-                String title = (String) result[6];
-                String trailerUrl = (String) result[7];
-                Integer ageLimit = ((Number) result[8]).intValue();
-                String widePosterUrl = (String) result[9];
-                Timestamp startShowDate = (Timestamp) result[10];
-                Timestamp endShowDate = (Timestamp) result[11];
-
-                Set<GenreDTO> genres = new HashSet<>();
-                movieDTOMap.put(movieId, new MovieDTO(movieId, description, duration, posterUrl,
-                        rating, releaseDate, title, trailerUrl, ageLimit, widePosterUrl,
-                        startShowDate, endShowDate, genres));
-            }
-
-            Long genreId = ((Number) result[13]).longValue();
-            String genreName = (String) result[14];
-            movieDTOMap.get(movieId).genres().add(new GenreDTO(genreId, genreName));
-        }
-
-        return new ArrayList<>(movieDTOMap.values());
+    public List<Movie> getAllMovies() {
+        var list = repository.findAll();
+        return list;
     }
 
 //    @Cacheable(value = "movie", key = "#id")
@@ -80,9 +46,25 @@ public class MovieService {
 //                .orElseThrow(() -> new MovieNotFoundException(id));
 //    }
 
-    @Cacheable(value = "movie", key = "#id")
+  @Cacheable(value = "movie", key = "#id")
+    @Transactional(readOnly = true)
+    public MovieDto getMovieById(Long id) {
+        List<Showtime> showtime = repository.findMovie(id);
+        List<ShowtimeDTO> showtimeDTO = showtime.stream().map( e -> {
+             return new ShowtimeDTO(e.getId(), e.getEndTime(), e.getStartTime(), e.getCinemaHall().getCinema().getId());
+        }).toList();
+        Movie movie = showtime.get(0).getMovie();
+       return new MovieDto(movie.getId(), movie.getDescription(), movie.getDuration(),
+               movie.getPosterURL(), movie.getRating(),movie.getReleaseDate(),movie.getTitle(), movie.getTrailerURL(),
+               movie.getAgeLimit(), movie.getWidePosterURL(), movie.getStartShowDate(),movie.getEndShowDate(),
+               movie.getGenres(),movie.getActors(),movie.getDirectors(),showtimeDTO);
+
+    }
+/*    @Cacheable(value = "movie", key = "#id")
     @Transactional(readOnly = true)
     public MovieFullDTO getMovieById(Long id) {
+        StopWatch watch = new StopWatch();
+        watch.start();
         String movieSql = "SELECT m.id, m.description, m.duration, m.poster_url," +
                 " m.rating, m.release_date, m.title, m.trailer_url, m.age_limit," +
                 " m.wide_poster_url, m.start_show_date, m.end_show_date" +
@@ -149,8 +131,11 @@ public class MovieService {
                 movieFullDTO.showtimes().add(showtimeDTO);
             }
         }
+        watch.stop();
+        System.out.println("Total execution time to create 1000K objects in Java using StopWatch in millis: "
+                + watch.getTotalTimeMillis());
         return movieFullDTO;
-    }
+    }*/
 }
 
 
