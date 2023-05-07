@@ -14,11 +14,11 @@ public class ShowtimeService {
     private final ShowtimeRepository repository;
 
     @Cacheable(value = "showtime", key = "#id")
+    @Transactional(readOnly = true)
     public Showtime getShowtimeById(Long id){
         return repository.findShowtimeById(id);
     }
 
-    @Transactional(readOnly = true)
     public ShowtimeSmallDto getShowtimeDtoById(Long id) {
         Showtime showtime = getShowtimeById(id);
         return new ShowtimeSmallDto(

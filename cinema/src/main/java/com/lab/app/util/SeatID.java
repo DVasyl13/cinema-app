@@ -16,4 +16,9 @@ public class SeatID implements Serializable {
 
     @Column(name = "seat_number")
     private Integer seatNumber;
+
+    public SeatID(Long bookingId, Integer seatNumber) {
+        this.bookingId = bookingId;
+        this.seatNumber = seatNumber;
+    }
 }

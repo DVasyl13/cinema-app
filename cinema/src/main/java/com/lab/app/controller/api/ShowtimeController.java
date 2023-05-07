@@ -20,10 +20,4 @@ public class ShowtimeController {
     public ShowtimeSmallDto getShowtime(@PathVariable("id") Long id) {
         return showtimeService.getShowtimeDtoById(id);
     }
-
-//    @GetMapping
-//    @RequestMapping("/{id}/booking")
-//    public ShowtimeSmallDto getShowtimeBookings(@PathVariable("id") Long id) {
-//        return showtimeService.getShowtimeDtoById(id);
-//    }
 }

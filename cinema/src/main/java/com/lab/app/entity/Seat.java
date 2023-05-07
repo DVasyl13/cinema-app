@@ -3,10 +3,7 @@ package com.lab.app.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lab.app.util.SeatID;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Table(name = "seat")
@@ -26,5 +23,11 @@ public class Seat {
                 foreignKey = @ForeignKey(name = "FK_seat_booking"))
     @JsonBackReference
     private Booking booking;
+
+
+    public Seat(SeatID id, Double price) {
+        this.id = id;
+        this.price = price;
+    }
 
 }
