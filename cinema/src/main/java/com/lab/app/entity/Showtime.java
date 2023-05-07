@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "showtime")
@@ -31,7 +29,7 @@ public class Showtime {
 
     @OneToMany(mappedBy = "showtime", orphanRemoval = true,  fetch = FetchType.EAGER)
     @JsonManagedReference
-    private List<Booking> bookings = new ArrayList<>();
+    private Set<Booking> bookings = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
     @JsonBackReference
@@ -46,10 +44,5 @@ public class Showtime {
             insertable = false, updatable = false,
             foreignKey = @ForeignKey(name = "FK_showtime_cinemaHall"))
     private CinemaHall cinemaHall;
-
-    public void addBooking(Booking booking) {
-        booking.setShowtime(this);
-        bookings.add(booking);
-    }
 
 }

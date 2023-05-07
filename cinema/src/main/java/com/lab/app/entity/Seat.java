@@ -2,7 +2,6 @@ package com.lab.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lab.app.util.SeatID;
-import com.lab.app.util.enums.SeatType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,9 +16,6 @@ import lombok.ToString;
 public class Seat {
     @EmbeddedId
     private SeatID id;
-
-    @Column(name = "type", nullable = false)
-    private SeatType type;
 
     @Column(name = "price", nullable = false)
     private Double price;

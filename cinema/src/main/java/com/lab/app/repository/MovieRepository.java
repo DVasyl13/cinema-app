@@ -9,24 +9,12 @@ import java.util.List;
 
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
-
-   //TODO: Need to refactor to MovieDTO using new package.DTO style
     @Query("select distinct m from Movie m " +
             "left join fetch m.genres " +
             " left join fetch m.genres" +
             " left join fetch m.directors " +
             "left join fetch m.actors")
     List<Movie> findAll();
-    @Query("select distinct s from  Showtime s " +
-            "left join fetch s.cinemaHall ch " +
-            "left join fetch s.movie m" +
-            " left join fetch m.genres" +
-            " left join fetch m.directors " +
-            " left join fetch m.actors" +
-            " left join fetch s.bookings b " +
-            " left join fetch b.seats" +
-            " left join fetch ch.cinema where s.movie.id =?1")
-    List<Showtime> findMovie(Long id);
 
 //    // WHy doesn't it work
 //    @Query("""

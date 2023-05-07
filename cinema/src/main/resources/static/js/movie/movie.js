@@ -147,9 +147,8 @@ const showInfo = (data) => {
 
 const initShowtimes = (data) => {
     const cinemaId = sessionStorage.getItem("cinema-id");
-    console.log(data);
     data = data.filter(a => a.cinemaId == cinemaId);
-    console.log(data)
+    console.log(data);
     const ticketWrapper = document.querySelector(".tickets-wrapper");
     let href = window.location.href;
     let id = href

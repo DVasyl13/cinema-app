@@ -1,4 +1,5 @@
 import initializeHeader from "../common/header-initializer.js";
+import {getDate} from "../util/helpers.js";
 
 let seats;
 const seatContainer = document.querySelector(".row-container");
@@ -6,17 +7,17 @@ const total = document.getElementById("total");
 const ticketPrice = 140;
 const rows = 8;
 const columns = 12;
-
+const order = [];
+let showtime;
 
 window.onload = () => {
     initializeHeader();
     getMovieInfo();
-    initialize();
-    //populateUI();
+    initializeSeats();
     updateSelectedCount();
 }
 
-const initialize = () => {
+const initializeSeats = () => {
     // Ініціалізація сидінь
     let seatID = 1;
     for (let i = 0; i < rows; i++) {
@@ -39,29 +40,67 @@ const initialize = () => {
     seats = document.querySelectorAll(".row .seat:not(.occupied)");
 }
 
-const getMovieInfo = () => {
+async function getMovieInfo(){
     try{
-        // const response = async fetch("/");
-        // const data = await response.json();
+        let href = window.location.href;
+        let id = href
+            .substring(href.lastIndexOf('/'))
+            .replace(/[^\d.]/g, '');
+        const response = await fetch('/api/v1/showtime/' + id);
+        if (!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);
+        }
+        showtime =  await response.json();
+        initializePageDescription(showtime);
     } catch (e) {
         console.error("Error: " + e);
     }
 }
+const initializePageDescription = (data) => {
+    document.getElementById("movie-name").innerHTML = data.movieName;
+    let minutes = new Date(data.startTime).getMinutes();
+    let minutesStr = '' + minutes;
+    if(minutes < 10 ){
+        minutesStr  = '0'+ minutes;
+    }
+    document.getElementById("showtime-period").innerHTML =
+        getDate(data.startTime, data.endTime, 0) + ' '
+        + new Date(data.startTime).getHours() + ':' + minutesStr;
+    document.getElementById("cinema-hall").innerHTML = 'Зал №' + data.cinemaHallId;
+}
 
-// TEMP
-const getOccupiedSeats = () => {
-    const occupiesSeats = [];
 
-    occupiesSeats.forEach((value) => {
-        document.getElementById("seat-"+value).classList.add("occupied");
-    });
+async function getOccupiedSeats() {
+    try{
+        let href = window.location.href;
+        let id = href
+            .substring(href.lastIndexOf('/'))
+            .replace(/[^\d.]/g, '');
+        const response = await fetch('/api/v1/booking/showtime/' + id);
+        if (!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);
+        }
+
+        const responseJson =  await response.json();
+
+        const occupiesSeats = responseJson.flatMap((item) =>
+            item.seats.map((seat) => seat.id.seatNumber)
+        );
+        occupiesSeats.forEach((value) => {
+            document.getElementById("seat-"+value).classList.add("occupied");
+        });
+    } catch (e) {
+        console.error("Error: " + e);
+    }
 }
 
 
 function updateSelectedCount() {
     const selectedSeats = document.querySelectorAll(".container .selected");
 
-    seatsIndex = [...selectedSeats].map(function(seat) {
+    let seatsIndex = [...selectedSeats].map(function(seat) {
         return [...seats].indexOf(seat);
     });
 
@@ -70,21 +109,8 @@ function updateSelectedCount() {
 
     let selectedSeatsCount = selectedSeats.length;
     total.textContent = selectedSeatsCount * ticketPrice +'';
+    console.log(order);
 }
-
-// // Сетає вибрані раніше місця (при перезагрузці сторінки)
-// function populateUI() {
-//     const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
-//
-//     if (selectedSeats !== null && selectedSeats.length > 0) {
-//         seats.forEach(function(seat, index) {
-//             if (selectedSeats.indexOf(index) > -1) {
-//                 seat.classList.add("selected");
-//             }
-//         });
-//     }
-// }
-
 
 // Додає токен selected до елементу масиву seatContainer на нажаття
 seatContainer.addEventListener("click", function(e) {

@@ -42,18 +42,4 @@ public class Booking {
             foreignKey = @ForeignKey(name = "FK_booking_showtime"))
     @JsonBackReference
     private Showtime showtime;
-
- /*   public Booking(Double totalPrice, User user) {
-        this.totalPrice = totalPrice;
-        this.user = user;
-        // ?? seats ?? showtime
-    }*/
-    public void addSeat(Seat seat) {
-        seat.setBooking(this);
-        seats.add(seat);
-    }
-    public void removeSeat(Seat seat) {
-        seat.setBooking(null);
-        seats.remove(seat);
-    }
 }
