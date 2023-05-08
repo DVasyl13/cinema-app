@@ -178,6 +178,7 @@ const verifyUser = (data) => {
 const setUserData = (response) => {
     sessionStorage.setItem('id', response.data.id);
     sessionStorage.setItem('name', response.data.name);
+    sessionStorage.setItem('email', response.data.email);
     location.reload();
 }
 

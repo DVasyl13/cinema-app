@@ -183,6 +183,7 @@ const doOrder = () => {
     const requestBody = {
         userId: sessionStorage.getItem("id"),
         showtimeId: showtime.id,
+        userEmail: sessionStorage.getItem("email"),
         seats: order
     }
     console.log(requestBody);

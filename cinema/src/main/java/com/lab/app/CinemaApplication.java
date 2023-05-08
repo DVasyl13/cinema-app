@@ -23,5 +23,4 @@ public class CinemaApplication {
     public void refreshCache() {
         log.info("[Refreshing cache]");
     }
-    
 }
