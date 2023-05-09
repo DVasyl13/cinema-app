@@ -1,16 +1,16 @@
 
-
-.link-tree{
+.link-tree {
     display: flex;
     align-items: center;
     padding: 40px 60px;
 }
-a{
+
+a {
     color: #C6C6C6;
     text-decoration: none;
 }
 
-.wrapper{
+.wrapper {
     font-family: 'Montserrat', sans-serif !important;
     display: flex;
     justify-content: center;
@@ -18,46 +18,85 @@ a{
     margin: 0 auto;
 }
 
-.wrapper p{
+.wrapper p {
     font-weight: bold;
     margin-top: 20px;
 }
 
-.wrapper span{
+.wrapper span {
     margin-left: 16px;
     font-weight: 400;
 
 }
-.wrapper{
+
+.wrapper {
     margin-top: 20px;
 }
 
 
+#image-container {
+    margin: 30px 35px 0 50px;
 
-#image-container{
-    margin: 30px 10px 0 50px;
-    height: 300px;
-    width: 400px;
+    height: 450px;
+    width: 350px;
 }
-#image-container img{
+
+#image-container img {
     position: relative;
     border-radius: 15px;
+    padding-bottom: 30px;
     height: 440px;
     width: 300px;
 }
 
-.nav-container{
+.trailer-button {
+    position: relative;
+    display: block;
+    left: 41px;
+    width: 210px;
+    height: 50px !important;
+    border-radius: 30px;
+    background-color: white;
+    z-index: 9;
+
+}
+a.trailer-button{
+    width: 210px;
+    height: 50px !important;
+}
+
+.play-icon {
+    position: relative;
+    top: 7px;
+    left: 23px;
+    color: black;
+    font-size: 38px !important;
+}
+
+.trailer-button-text {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: bold !important;
+    font-size: 22px;
+    position: relative;
+    left: 12px;
+    bottom:5px;
+}
+
+.nav-container {
     margin: 140px 0 10px 10px;
     list-style: none;
     display: table;
 }
-.arrow{
+
+.arrow {
     color: #fff;
     position: relative;
-    top:2px;
+    top: 2px;
     font-size: 20px !important;
 }
-.nav-container li{
+
+.nav-container li {
     color: #eaeaea;
     display: table-cell;
     position: relative;
@@ -66,18 +105,22 @@ a{
     font-weight: 10;
     list-style: none;
 }
-.nav-movie-title{
+
+.nav-movie-title {
     color: #a6a6a6;
     font-size: 21px;
     font-weight: 10;
 }
-.movie-title{
+
+.movie-title {
     color: #fff;
 }
-.info-section{
+
+.info-section {
     width: 70%;
 }
-.description{
+
+.description {
     color: #d0d0d0;
     margin: 0 25px 5px 0;
     font-size: 18px;
@@ -90,13 +133,15 @@ a{
     font-size: 20px;
     font-weight: 999;
 }
-.tickets-container{
+
+.tickets-container {
     position: relative;
     margin-top: 40px;
     height: 150px;
     width: 100%
 }
-.tickets-wrapper{
+
+.tickets-wrapper {
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
@@ -109,7 +154,8 @@ a{
     height: 100%;
     width: 720px;
 }
-.ticket{
+
+.ticket {
     position: relative;
     border-style: solid;
     margin-top: 21px;
@@ -120,23 +166,26 @@ a{
     background-color: #fff;
     height: 70%;
 }
-.ticket:first-child{
+
+.ticket:first-child {
     margin-left: 50px;
 }
-.movie-time{
-    font-size: 25px;
+
+.movie-time {
+    font-size: 15px;
     margin: 25px 0 0 54px;
-    color:black;
+    color: black;
     font-weight: bold;
 
 }
 
-.ticket-price{
-    color:black;
+.ticket-price {
+    color: black;
     font-size: 18px;
     margin: 10px 0 0 56px;
 }
-#movie-description{
+
+#movie-description {
     color: #d0d0d0;
     font-size: 19px;
     font-weight: 100;
