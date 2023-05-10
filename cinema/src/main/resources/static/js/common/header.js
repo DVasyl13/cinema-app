@@ -149,13 +149,13 @@ const loginUser = () => {
     verifyUser(data);
 }
 
-const verifyUser = (data) => {
+const verifyUser = (input) => {
     fetch('/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(input)
     })
         .then(response => {
             if (!response.ok) {
@@ -165,7 +165,7 @@ const verifyUser = (data) => {
         })
         .then(data => {
             document.getElementById('login-label').innerHTML='';
-            setUserData(data);
+            setUserData(data, input.password);
             removePopUps();
         })
         .catch(error => {
@@ -175,9 +175,10 @@ const verifyUser = (data) => {
 
 }
 
-const setUserData = (response) => {
+const setUserData = (response, password) => {
     sessionStorage.setItem('id', response.data.id);
     sessionStorage.setItem('name', response.data.name);
+    sessionStorage.setItem('password', password);
     sessionStorage.setItem('email', response.data.email);
     location.reload();
 }

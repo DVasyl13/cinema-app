@@ -1,5 +1,6 @@
 package com.lab.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.lab.app.util.enums.Role;
 import jakarta.persistence.*;
@@ -30,13 +31,15 @@ public class User {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    @JsonIgnore
     @Column(name = "password", nullable = false)
     private String password;
 
+    @JsonIgnore
     @Column(name = "role")
     private Role role;
 
-    @OneToMany( cascade = CascadeType.ALL)
+    @OneToMany( mappedBy = "user" ,cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Booking> bookings = new ArrayList<>();
 

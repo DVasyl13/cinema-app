@@ -3,7 +3,8 @@ package com.lab.app.service;
 import com.lab.app.controller.exception.UserAlreadyExistException;
 import com.lab.app.controller.exception.UserNotFoundException;
 import com.lab.app.controller.exception.WrongPasswordException;
-import com.lab.app.dto.NewUserSubmission;
+import com.lab.app.dto.UserFullSubmission;
+import com.lab.app.dto.UserDto;
 import com.lab.app.entity.User;
 import com.lab.app.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class UserService {
 
 
     @Transactional
-    public User saveUser(NewUserSubmission newUser) {
+    public User saveUser(UserFullSubmission newUser) {
         User user = new User(newUser.name(), newUser.surname(), newUser.password(), newUser.email());
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -58,4 +59,12 @@ public class UserService {
                 .isPresent();
     }
 
+    @Transactional(readOnly = true)
+    public User getUser(UserDto userDto) {
+        User user = userRepository.findUserByIdFetchBookingAndSeats(userDto.id());
+        if (!passwordEncoder.matches(userDto.password(), user.getPassword())) {
+            throw new WrongPasswordException(""+user.getId());
+        }
+        return user;
+    }
 }

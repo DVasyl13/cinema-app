@@ -36,16 +36,19 @@
             <a th:href="@{/movie}">
                 <li>Фільми</li>
             </a>
-            <a>
-                <li>Розклад сеансів</li>
-            </a>
             <a th:href="@{/info}">
                 <li>Про нас</li>
             </a>
         </ul>
     </nav>
     <button id="main-login-button">Увійти</button>
-    <button hidden id="user-button"></button>
+    <div class="dropdown">
+        <button hidden id="user-button"></button>
+        <div class="dropdown-content">
+            <a th:href="@{/account}">Управління акаутом</a>
+            <a th:href="@{/account/booking}">Ваші замовлення</a>
+        </div>
+    </div>
 </header>
 <div class="login-popup">
     <div id="login-form">

@@ -25,13 +25,13 @@ public class Booking {
     @JsonManagedReference
     private Set<Seat> seats = new HashSet<>();
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false,
-//                foreignKey = @ForeignKey(name = "FK_booking_user"))
-//    @JsonBackReference
-//    private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false,
+                foreignKey = @ForeignKey(name = "FK_booking_user"))
+    @JsonBackReference
+    private User user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "showtime_id", referencedColumnName = "id",
                         insertable = false, updatable = false,
             foreignKey = @ForeignKey(name = "FK_booking_showtime"))
