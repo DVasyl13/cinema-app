@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/popup.css">
     <link rel="stylesheet" type="text/css" href="/css/booking.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>QUAD Cinema</title>
 </head>
@@ -74,63 +77,70 @@
 </div>
 
 <div class="main-container">
-    <div class="poster-container">
+    <!--<div class="poster-container">
         <img src="https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/6408f6e7b5811271dc883aa8_batman-min.png">
-    </div>
-
-    <div class="screen-container">
-        <div class="movie-container">
-            <h1 id="movie-name"></h1>
-            <h2 id="showtime-period"></h2>
-            <h2 id="cinema-hall"></h2>
-        </div>
-
-        <div class="showcase-container">
-            <ul class="showcase">
-                <li>
-                    <div class="seat"></div>
-                    <small>Вільно</small>
-                </li>
-                <li>
-                    <div class="seat selected"></div>
-                    <small>Вибрано</small>
-                </li>
-                <li>
-                    <div class="seat occupied"></div>
-                    <small>Зайнято</small>
-                </li>
-            </ul>
-        </div>
-
-        <div class="container">
-            <div class="movie-screen">
-                <img src="https://raw.githubusercontent.com/aakashsr/Movie-Seat-Booking/master/screen-thumb.png"
-                     alt='screen'/>
-            </div>
-
-            <div class="row-container">
-            </div>
-
-            <div class="order-container">
-                <h5 id="price" class='subtitle'>Ціна за місце - ₴</h5>
-                <div class="text-wrapper">
-                    <p class="text">Total Price ₴<span id="total">0</span></p>
-                    <button id="order-button">Замовити</button>
+    </div>-->
+    <div id="movie-seat-container">
+        <div id="movie-box" class="wrapper">
+            <div id="image-container"></div>
+            <div class="movie-info-container">
+                <h1 id="movie-name"></h1>
+                <p id="movie-location">
+                    <span class="material-symbols-outlined location-icon">location_on</span>
+                    <span id="location-text"></span>
+                </p>
+                <p id="movie-date">
+                    <span class="material-symbols-outlined date-icon">event</span>
+                <span id="date-text"></span>
+                </p>
+                <p id="movie-time">
+                    <span class="material-symbols-outlined time-icon">schedule</span>
+                <span id="time-text"></span>
+                </p>
+                <div class="showcase-container">
+                    <ul class="showcase">
+                        <li>
+                            <div class="seat"></div>
+                            <small>Вільно</small>
+                        </li>
+                        <li>
+                            <div class="seat selected"></div>
+                            <small>Вибрано</small>
+                        </li>
+                        <li>
+                            <div class="seat occupied"></div>
+                            <small>Зайнято</small>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
         </div>
 
-    </div>
-    <div class="order-container">
-        <div class="user-order">
-            <!--            <div class="order-element">-->
-            <!--                <p>5 Ряд</p>-->
-            <!--                <p>14 Місце</p>-->
-            <!--            </div>-->
+        <div class="screen-container">
+            <div class="container">
+                <div class="movie-screen">
+                    <img src="https://raw.githubusercontent.com/aakashsr/Movie-Seat-Booking/master/screen-thumb.png"
+                         alt='screen'/>
+                </div>
+
+                <div class="row-container">
+                </div>
+                </div>
+            </div>
+
         </div>
+    <div class="order-container">
+        <div class="user-ticket-order">
+        </div>
+
+        <p class="order-total-price">Всього до сплати: <span id="total-price">0</span> грн</p>
+            <button id="order-button">Продовжити</button>
     </div>
-</div>
+
+    </div>
+
+
 
 
 <script src="/js/common/header.js"></script>

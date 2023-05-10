@@ -1,31 +1,27 @@
-* {
 
-    box-sizing: border-box;
-}
-
-body {
-    background-size: cover;
-    color: #fff;
-    background-color: rgb(0, 15, 42);
+#movie-seat-container {
+    display: block;
+    width: 100%;
 }
 
 .main-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
 }
 
+
 .screen-container {
+    display: flex;
+    margin-left: 140px;
     flex-direction: column;
     width: 60%;
 }
 
 .movie-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+}
+
+.movie-container {
+    color: white;
 }
 
 .poster-container {
@@ -33,17 +29,63 @@ body {
     height: 100%;
 }
 
-.poster-container img {
-    max-width: 300px;
-    max-height: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
 
 .order-container {
-    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 178px;
+    right: 100px;
+    height: 620px;
+    width: 450px;
+    border-radius: 40px;
+}
+
+.user-ticket-order {
+    background-color: #ffffff;
+    height: 385px;
+    overflow-y: scroll;
+    width: 350px;
+    margin: 55px 50px 40px 50px;
+}
+
+
+.ticket {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #1d4292;
+    margin: 0 0 8px 0;
+    height: 80px;
+    width: 344px;
+    z-index: 9;
+}
+
+.close-button {
+    position: relative;
+    bottom: 18px;
+    left: 300px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.ticket-info {
+    margin: 24px 0 0 13px;
+}
+
+.ticket-row-number {
+    font-weight: 600;
+}
+
+.ticket-seat {
+    margin-left: 30px;
+}
+
+.ticket-seat-number {
+    font-weight: 600;
+}
+
+.ticket-price {
+    margin-left: 28px;
+    font-weight: 600;
 }
 
 .user-order {
@@ -55,18 +97,110 @@ body {
     flex-wrap: wrap;
 }
 
+.order-total-price {
+    margin: 0 0 15px 77px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+#order-button {
+    background-color: #1d4292;
+    color: #fff;
+    margin: 10px 0 0 58px;
+    border-style: none;
+    border-radius: 50px;
+    font-size: larger;
+    width: 330px;
+    height: 65px;
+    cursor: pointer;
+}
+
 .order-element {
     max-width: 170px;
     border-radius: 13px;
     padding-left: 1rem;
-    border-color: white;
+    border-color: #000000;
     border-style: solid;
-    background-color: #171010;
+    background-color: #ffffff;
 }
 
 .text-wrapper button {
     /*    */
 }
+
+.wrapper {
+    display: flex;
+    left: 0;
+    margin-top: 140px;
+    font-family: 'Montserrat', sans-serif !important;
+    max-width: 1440px;
+}
+
+.movie-info-container {
+    position: relative;
+    color: white;
+    height: 200px;
+    width: 450px;
+}
+
+#image-container, #image-container img {
+    position: relative;
+    margin: 0 40px 0 70px;
+    height: 210px;
+    width: 140px;
+}
+
+#image-container img {
+    margin: 0;
+}
+
+#movie-name {
+    margin: 0 0 20px 0;
+    font-size: 27px;
+}
+
+#movie-location {
+
+}
+
+#location-text {
+    color: #a4a4a4;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#date-text, #time-text {
+    color: #a4a4a4;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#movie-time {
+    margin-bottom: 5px;
+}
+
+#location-text {
+    left: 5px;
+    position: relative;
+    bottom: 5px;
+}
+
+#date-text {
+    left: 5px;
+    position: relative;
+    bottom: 5px;
+}
+
+#time-text {
+    left: 5px;
+    position: relative;
+    bottom: 5px;
+}
+
+.location-icon {
+    font-size: 24px !important;
+}
+
 
 .movie-container select {
     background-color: #fff;
@@ -99,22 +233,29 @@ body {
 
 
 .seat {
-    background-color: #444451;
+    background-color: #707070;
     height: 24px;
     width: 30px;
     margin: 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border: 2px solid #314c81;
+    border: 2px solid #707070;
     transition: all .2s ease;
 }
 
 .seat.selected {
-    background-color: #002dff;
+    background-color: #fdfdfd;
+    border-width: 2px;
+    border-color: #ffffff;
 }
 
 .seat.occupied {
-    background-color: #adabab;
+    border-width: 2px;
+    border-color: black;
+    background: url("../img/close.svg") no-repeat center;
+    background-size: 110%;
+
+
 }
 
 .seat:nth-of-type(2) {
@@ -129,6 +270,7 @@ body {
     /* Selecting seats that do not have "occupied" class */
     cursor: pointer;
     transform: scale(1.2);
+    background-color: #ffffff;
 }
 
 .showcase .seat:not(.occupied):hover {
@@ -137,15 +279,16 @@ body {
 }
 
 .showcase-container {
+    margin: 0 0 0 164px;
+    position: relative;
     width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
 .showcase {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 5px 10px;
+    margin-top: 5px;
     border-radius: 5px;
     color: #777;
     list-style-type: none;
