@@ -171,12 +171,20 @@ const initShowtimes = (data) => {
     const cinemaId = sessionStorage.getItem("cinema-id");
     data = data.filter(a => a.cinemaId == cinemaId);
     console.log(data);
+
+    const currentDate = new Date();
+    const filteredData = data.filter(obj => new Date(obj.startTime) > currentDate);
+
+    filteredData.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+
+    const result = filteredData.slice(0, 3);
+
     const ticketWrapper = document.querySelector(".tickets-wrapper");
     let href = window.location.href;
     let id = href
         .substring(href.lastIndexOf('/'))
         .replace(/[^\d.]/g, '');
-    data.forEach((e) => {
+    result.forEach((e) => {
         const ref = document.createElement("a");
         ref.setAttribute("class", "ticket");
         ref.setAttribute("href", "/movie/" + id + "/booking/" + e.id);

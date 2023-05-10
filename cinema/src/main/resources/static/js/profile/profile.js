@@ -35,7 +35,6 @@ async function getProfileDetails() {
 
         const response = await fetch('/api/v1/user', settings);
         const responseBody = await response.json();
-        console.log(responseBody);
         setUserDetails(responseBody);
 
     } catch (e) {
