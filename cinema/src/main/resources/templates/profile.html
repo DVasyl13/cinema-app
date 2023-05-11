@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/popup.css">
@@ -10,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <title>QUAD Cinema</title>
 </head>
 <body>
@@ -71,59 +74,74 @@
         <button id="login-form-button"> Увійти в обліковий запис</button>
     </div>
 </div>
-
-<div class="container">
-    <aside class="left-box">
-        <nav>
-            <ul>
-                <li class="tab active" onclick="tabs(0)">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
-                    <button class="sideBtn">Мій акаунт</button>
-                </li>
-                <li class="tab" onclick="tabs(1)">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M121.9 116.2C138.3 103.1 158.7 96 179.6 96H223c27.1 0 49 21.9 49 49c0 11.5-4 22.4-11.1 31H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H155.5l-50.6 28.9c-1.7 1-3.4 2-5.1 3.1H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H52.3c-2.8 9.9-4.3 20.4-4.3 31c0 62.4 50.6 113 113 113h43.4c35.5 0 70-12.1 97.7-34.3L308 441c13.8-11 16-31.2 5-45s-31.2-16-45-5l-5.9 4.7c-16.4 13.1-36.7 20.2-57.7 20.2H161c-27.1 0-49-21.9-49-49c0-11.5 4-22.4 11.1-31H352c17.7 0 32-14.3 32-32s-14.3-32-32-32H228.5l50.6-28.9c1.7-1 3.4-2 5.1-3.1H352c17.7 0 32-14.3 32-32s-14.3-32-32-32H331.7c2.8-10 4.3-20.4 4.3-31c0-62.4-50.6-113-113-113H179.6c-35.5 0-70 12.1-97.7 34.3L76 71c-13.8 11-16 31.2-5 45s31.2 16 45 5l5.9-4.7z"/></svg>
-                    <button class="sideBtn">Мої замовлення</button>
-                </li>
-                <li class="tab" onclick="">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
-                    <button class="sideBtn">Вийти</button>
-                </li>
-            </ul>
-        </nav>
-    </aside>
-    <main class="left-box">
-        <hr>
-        <h1>Мій особистий кабінет</h1>
-        <hr>
-        <div class="account tabShow">
-            <h3>Персональна інформація</h3>
-            <div class="left-box">
-                <label for="my-name">Ім'я</label>
-                <input type="text" id="my-name">
-
-                <label for="my-surname">Прізвище</label>
-                <input type="number" id=my-surname>
-
-                <label for="my-email">Email</label>
-                <input type="email" id="my-email">
-
-                <label for="my-password">Пароль</label>
-                <input type="password" id="my-password">
-            </div>
-        </div>
-        <div class="orders tabShow">
-            <h3>Мої замовлення</h3>
-            <div class="orederBox">
-                <article class="order">
-                    <h4>Мавка</h4>
-                    <div>
-                        текст
+<main>
+    <div class="profile-container">
+        <button id="profile-box-button">Профіль</button>
+        <button id="ticket-box-button">Квитки</button>
+        <div id="profile-box">
+            <div class="user-info-box">
+                <h1 class="box-header">Вітаємо, Андрій</h1>
+                <div class="user-info">
+                    <div class="info-section">
+                        <p class="field-name">Імʼя</p>
+                        <p class="field-info">
+                            <input type="text" class="change-input-field" name="first-name" id="first-name-input"
+                                   placeholder="Введіть нове імʼя">
+                            <span id="first-name" class="info-text"></span>
+                            <span class="material-symbols-outlined edit-icon" id="first-name-button">edit_square</span>
+                        </p>
                     </div>
-                </article>
+                    <div class="info-section">
+                        <p class="field-name">Прізвище</p>
+                        <p class="field-info">
+                            <input type="text" class="change-input-field" name="last-name" id="last-name-input"
+                                   placeholder="Введіть нове прізвище">
+                            <span id="last-name" class="info-text"></span>
+                            <span class="material-symbols-outlined edit-icon" id="last-name-button">edit_square</span>
+                        </p>
+                    </div>
+                    <div class="info-section">
+                        <p class="field-name">Email</p>
+                        <p class="field-info">
+                            <input type="text" class="change-input-field" name="email" id="email-input"
+                                   placeholder="Введіть новий Email">
+                            <span id="user-email" class="info-text"></span>
+                            <span class="material-symbols-outlined edit-icon" id="email-button">edit_square</span>
+                        </p>
+                    </div>
+                    <div class="info-section">
+                        <p class="field-name">Пароль</p>
+                        <p class="field-info">
+                            <input type="password" class="change-input-field" name="password" id="password-input"
+                                   placeholder="Введіть новий пароль">
+                            <span id="user-password" class="info-text">********</span>
+                            <span class="material-symbols-outlined edit-icon" id="password-button">edit_square</span>
+                        </p>
+                    </div>
+                </div>
+                <button id="save-button">Зберегти зміни</button>
             </div>
         </div>
-    </main>
-</div>
+        <div id="ticket-box">
+            <div class="user-info-box">
+                <h1 class="box-header">Ваші квитки</h1>
+                <p class="ticket-header">
+                    <span id="film-name-header" class="ticket-field-name-header">Фільм</span>
+                    <span id="film-date-header" class="ticket-field-name-header">Дата сеансу</span>
+                    <span id="ticket-row-header" class="ticket-field-name-header">Ряд</span>
+                    <span id="ticket-seat-header" class="ticket-field-name-header">Місце</span>
+                    <span id="ticket-price-header" class="ticket-field-name-header">Вартість</span>
+                </p>
+                <div id="ticket-container">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</main>
 <script src="/js/common/header.js"></script>
 <script type="module" src="/js/profile/profile.js"></script>
 </body>

@@ -1,90 +1,190 @@
-.container{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
 
+
+.profile-container{
+    margin-top: 150px;
 }
 
-.left-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #fff;
-    overflow-y: visible;
+#profile-box,#ticket-box {
+    padding-top: 20px;
+    margin: 20px 0 0 290px;
+    height: 660px;
+    width: 1100px;
+    background-color: white;
+    border-radius: 30px;
 }
+#profile-box{
+    transition: 0.5s ease-out;
+}
+#ticket-box{
+    display: none;
+}
+#save-button{
 
-.right-box{
+    background-color: #ffffff;
     color: #fff;
-    background-color: #000;
-}
-
-.left-box ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 25px;
-}
-
-.active{
-    background-color: black;
-}
-
-.active > *:not(.leftBox){
-    background-color: #fff;
-    filter: invert();
-}
-
-.left-box ul li{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 80px auto;
-    padding: 25px 40px;
-    font-weight: 600;
+    margin: 390px 0 0 386px;
+    border-style: none;
+    border-radius: 50px;
+    font-size: larger;
+    width: 330px;
+    height: 0;
     cursor: pointer;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    transition: all 0.5s;
+    transition: 0.5s ease-out;
+}
+#profile-box-button,#ticket-box-button{
+    position: fixed;
+    width: 235px;
+    height: 90px;
+    border-style: solid;
+    border-color: white;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+#profile-box-button{
+    position: fixed;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 70px 0 0 55px;
+}
+.box-header{
+    position: relative;
+    margin: 40px 0 40px 0;
+    text-align: center;
+    font-weight: 300;
+}
+.user-info-box{
+    height: 620px;
+}
+.user-info{
+    margin: 0 0 30px 360px;
+    height: 50px;
+    width: 330px;
+    position: relative;
+    text-align: center;
+}
+.field-info{
+    margin: 5px 0 0 0;
+    height: 50px;
+    width: 380px;
+    position: relative;
+    border-style: solid;
+    border-radius: 23px;
+    border-color: black;
+    text-align: center;
 }
 
-.left-box ul li:hover:not(.active){
-    background-color: grey;
+
+#ticket-box-button{
+    position: fixed;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 168px 0 0 57px;
+    border-style: solid;
+    border-color: white;
 }
 
-.side-btn{
-    border: 0;
+.field-name{
+    font-weight: 600;
+    color: #3f3f3f;
+    text-align: start;
+    margin: 0 0 10px 20px;
+}
+.info-section{
+    margin: 0 0 30px 0;
+}
+.info-text{
+    position: absolute;
+    left:25px;
+    top:13px;
+    color: #626161;
+}
+.change-input-field{
+    margin:0 0 0 23px;
+    display: none;
+    height: 50px;
+    width: 330px;
+    position: relative;
+    border-style: none;
+    outline:none;
+    font-size: 21px;
+}
+.change-input-field::placeholder{
+    text-align: left;
+}
+#user-password{
+    top:17px
+}
+.change-input-field:active{
+    border: none;
+}
+.edit-icon{
+    position: absolute;
+    right:-52px;
+    top:1px;
+    font-size: 40px !important;
+    cursor: pointer;
+}
+.ticket-header{
+    position:relative;
+    left: 50px;
+    height: 45px;
+    width: 1000px;
+    margin-bottom: 5px;
+}
+.ticket-field-name-header{
     font-size: 20px;
-    margin-left: 1rem;
-    background-color: inherit;
-    transition: all 0.2s;
+    font-weight: 300;
+}
+#film-name-header{
+    margin-left: 140px;
+}
+#film-date-header{
+    margin-left: 187px;
+}
+#ticket-row-header{
+    margin-left: 120px;
+}
+#ticket-seat-header{
+    margin-left: 45px;
+}
+#ticket-price-header{
+    margin-left: 60px;
+}
+#ticket-container{
+    margin-left: 85px;
+    height: 375px;
+    overflow-y: scroll;
+    width: 935px;
+
+}
+.ticket{
+    border-style: solid;
+    border-color: #9f9f9f;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+.ticket-field{
+    display: inline-block;
+}
+.ticket-film-name{
+
+    text-align: center;
+    margin-right: 25px;
+    width: 300px;
+    font-size: 18px;
 }
 
-
-.left-box ul li svg{
-    width: 25px;
+.ticket-film-date{
+    vertical-align: middle;
+    width: 273px;
+    font-size: 18px;
 }
-
-.right-box h1{
-    margin: 12px 22px;
+.ticket-row{
+    width: 95px;
 }
-
-/* account */
-/* .account{
-
-} */
-
-.info-box{
-    display: flex;
-    flex-direction: column;
-}
-
-.info-box label, h3{
-    padding: 22px;
-}
-
-.info-box input{
-    width: 60%;
-    margin: 0 22px;
-    padding: 10px;
-    border: 0;
+.ticket-seat{
+    width: 104px;
 }
