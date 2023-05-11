@@ -10,10 +10,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findUserByEmailFetchBooking(String email);
 
     User findUserByEmail(String email);
+
     @Query("select distinct u " +
             " from User u " +
             " left join fetch u.bookings b " +
+            " left join fetch b.showtime sh" +
+            " left join fetch sh.movie m" +
             " left join fetch b.seats " +
             " where u.id=?1")
     User findUserByIdFetchBookingAndSeats(Long id);
+
+
 }

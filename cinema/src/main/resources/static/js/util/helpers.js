@@ -24,14 +24,15 @@ const getDate = (startDate,endDate, flag) => {
                         "жовтня",
                         "листопада",
                         "грудня"];
+
     const startDateObject = new Date(startDate);
-    const endDateObject = new Date(endDate);
     const startMonth = monthString[startDateObject.getMonth()];
-    const endMonth = monthString[endDateObject.getMonth()];
     const startDay = startDateObject.getDate();
-    const endDay = endDateObject.getDate();
 
     if (flag) {
+        const endDateObject = new Date(endDate);
+        const endMonth = monthString[endDateObject.getMonth()];
+        const endDay = endDateObject.getDate();
         return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
     } else {
         return `${startDay} ${startMonth}`;

@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "booking")
 @Getter @Setter
-@ToString(exclude = { "showtime"})
+@ToString(exclude = {"user"})
 @NoArgsConstructor
 public class Booking {
     @Id

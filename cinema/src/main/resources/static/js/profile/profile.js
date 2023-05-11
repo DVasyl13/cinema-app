@@ -1,4 +1,5 @@
 import initializeHeader from "../common/header-initializer.js";
+import {getDate} from "../util/helpers.js";
 
 const tabBtn = document.querySelectorAll(".tab");
 const tab = document.querySelectorAll(".tabShow");
@@ -13,7 +14,7 @@ const emailChangeButton = document.getElementById("email-button");
 const passwordChangeButton = document.getElementById("password-button");
 const saveButton = document.getElementById("save-button");
 
-let changedFields = [];
+let changedFields = new Map();
 let changeFieldCounter = 0;
 
 
@@ -21,7 +22,9 @@ window.onload = function () {
     initializeHeader();
     getProfileDetails();
     initializePage();
-    showProfileBox(1);
+    for (let [key, value] of changedFields) {
+        console.log(sessionStorage.getItem(key));
+    }
 }
 firstNameChangeButton.addEventListener('click', function (e) {
 
@@ -87,12 +90,44 @@ saveButton.addEventListener('click', () => {
     saveButton.style.height = "0";*/
     document.querySelectorAll('.change-input-field').forEach(field => {
         if (field.value != null && field.value != "") {
-            changedFields.push({fieldName: field.id, fieldValue: field.value});
+            changedFields.set(field.name, field.value);
         }
     });
     console.log(changedFields);
+    const data = {
+        id: sessionStorage.getItem("id"),
+        name: changedFields.get("name"),
+        surname: changedFields.get("surname"),
+        email: changedFields.get("email"),
+        password: changedFields.get("password"),
+        oldpassword: sessionStorage.getItem("password")
+    };
+    saveUserChanges(data);
+    for (let [key, value] of changedFields) {
+        sessionStorage.setItem(key, value);
+    }
+    setUserDetails(data);
     location.reload();
 });
+
+
+async function saveUserChanges(data) {
+    try {
+        const settings = {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        };
+        const response = await fetch('/api/v1/user', settings);
+        const responseBody = await response.json();
+        console.log(responseBody);
+    } catch (e) {
+        console.error("Error: " + e);
+    }
+}
 
 function updateSaveButton() {
     if (changeFieldCounter !== 0) {
@@ -109,12 +144,10 @@ function updateSaveButton() {
 
 function initializePage() {
     const activeSection = window.location.href;
-    /*const section = activeSection
-        .substring(activeSection.lastIndexOf('/'))
-        .replace(/[^\d.]/g, '');
-    section === 'account' ? tabs(0): tabs(1);*/
-
-
+    const section = activeSection
+        .substring(activeSection.lastIndexOf('/') + 1);
+    console.log(section);
+    section === 'account' ?     showProfileBox(1) : showProfileBox(0);
 }
 
 async function getProfileDetails() {
@@ -139,7 +172,7 @@ async function getProfileDetails() {
         setTicketsDetails(responseBody.data.bookings);
 
     } catch (e) {
-        console.error("Error: " + e);
+        console.error("Error: " + e );
     }
 }
 
@@ -172,15 +205,20 @@ function showProfileBox(flag) {
 
 const setUserDetails = (data) => {
     document.getElementById("first-name").innerHTML = data.name;
-    document.getElementById("last-name").innerHTML = data.surname.toString();
-    document.getElementById("user-email").innerHTML = data.email.toString();
+    document.getElementById("last-name").innerHTML = data.surname;
+    document.getElementById("user-email").innerHTML = data.email;
+    document.getElementById("user-password").innerHTML = sessionStorage.getItem("password");
+    document.getElementById("box-header").innerHTML = 'Вітаємо, ' + data.name;
 }
 const setTicketsDetails = (bookings) => {
-    const ticketContainer = document.getElementById("ticket-container");
     bookings.forEach(ticket => {
-        const ticketDiv = document.createElement("div");
-        ticketDiv.setAttribute("class", "ticket");
+        createTicket(ticket, ticket.seats);
+    });
+}
 
+function createTicket(ticket, seats) {
+    const ticketContainer = document.getElementById("ticket-container");
+    seats.forEach( seat => {
         const ticketInfo = document.createElement("p");
         ticketInfo.setAttribute("class", "ticket-info");
 
@@ -188,28 +226,36 @@ const setTicketsDetails = (bookings) => {
         ticketFilmName.setAttribute("class", "ticket-film-name");
         ticketFilmName.classList.add("ticket-field");
         // Film name
-        ticketFilmName.innerHTML = "Люксембург, Люксембург";
+        ticketFilmName.innerHTML = ticket.movieName;
         ticketInfo.appendChild(ticketFilmName);
 
         const ticketFilmDate = document.createElement("span");
         ticketFilmDate.setAttribute("class", "ticket-film-date");
         ticketFilmDate.classList.add("ticket-field");
         // Film date(with time)
-        ticketFilmDate.innerHTML = "21 травня 2023 11:00";
+        let minutes = new Date(ticket.startTime).getMinutes();
+        let minutesStr = '' + minutes;
+        if (minutes < 10) {
+            minutesStr = '0' + minutes;
+        }
+        ticketFilmDate.innerHTML = getDate(ticket.startTime, null, 0)
+            + ' ' + new Date(ticket.startTime).getFullYear() + ' '
+            + new Date(ticket.startTime).getHours() + ':' + minutesStr;
         ticketInfo.appendChild(ticketFilmDate);
 
+        let num = parseInt(seat.id.seatNumber);
         const ticketRow = document.createElement("span");
         ticketRow.setAttribute("class", "ticket-row");
         ticketRow.classList.add("ticket-field");
         // Booking(row)
-        ticketRow.innerHTML = "3";
+        ticketRow.innerHTML = Math.ceil(num / 12);
         ticketInfo.appendChild(ticketRow);
 
         const ticketSeat = document.createElement("span");
         ticketSeat.setAttribute("class", "ticket-seat");
         ticketSeat.classList.add("ticket-field");
         // Booking(seat)
-        ticketSeat.innerHTML = "9";
+        ticketSeat.innerHTML = (num % 12) == 0 ? 12 : (num % 12);
         ticketInfo.appendChild(ticketSeat);
 
         const ticketPrice = document.createElement("span");
@@ -219,11 +265,10 @@ const setTicketsDetails = (bookings) => {
         ticketPrice.innerHTML = "140 грн";
         ticketInfo.appendChild(ticketPrice);
 
+        const ticketDiv = document.createElement("div");
+        ticketDiv.setAttribute("class", "ticket");
         ticketDiv.appendChild(ticketInfo);
-
         ticketContainer.appendChild(ticketDiv);
-
     });
-    console.log(bookings);
 }
 

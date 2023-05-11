@@ -10,7 +10,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -41,7 +43,7 @@ public class User {
 
     @OneToMany( mappedBy = "user" ,cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Booking> bookings = new ArrayList<>();
+    private Set<Booking> bookings = new HashSet<>();
 
     public User(String name, String surname, String password, String email) {
         this.name = name;

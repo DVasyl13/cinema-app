@@ -14,7 +14,7 @@ import java.util.*;
 @Table(name = "showtime")
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"bookings"})
 @NoArgsConstructor
 public class Showtime {
     @Id
@@ -27,7 +27,7 @@ public class Showtime {
     @Column(name = "end_time", nullable = false)
     private Date endTime;
 
-    @OneToMany(mappedBy = "showtime", orphanRemoval = true,  fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "showtime", orphanRemoval = true,  fetch = FetchType.LAZY)
     @JsonManagedReference
     private Set<Booking> bookings = new HashSet<>();
 

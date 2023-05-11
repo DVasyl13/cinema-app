@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "actor")
 @Setter @Getter
-@ToString
+@ToString(exclude = {"movies"})
 @RequiredArgsConstructor
 public class Actor {
     @Id

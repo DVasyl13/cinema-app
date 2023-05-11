@@ -9,12 +9,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "cinema_hall")
 @Getter @Setter
-@ToString
+@ToString(exclude = {"showtimeList", "cinema"})
 @NoArgsConstructor
 public class CinemaHall {
     @Id
@@ -24,9 +26,9 @@ public class CinemaHall {
     @Column(name = "capacity", nullable = false)
     private Integer capacity;
 
-    @OneToMany(mappedBy = "cinemaHall", orphanRemoval = true)
+    @OneToMany(mappedBy = "cinemaHall", orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonManagedReference
-    private List<Showtime> showtimeList = new ArrayList<>();
+    private Set<Showtime> showtimeList = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference

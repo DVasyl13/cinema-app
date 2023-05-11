@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "director")
 @Setter
 @Getter
-@ToString
+@ToString(exclude = {"movies"})
 @RequiredArgsConstructor
 public class Director {
     @Id

@@ -55,15 +55,15 @@ public class Movie {
     @Column(name = "movie_picture_URL")
     private String moviePictureUrl;
 
-    @ManyToMany(mappedBy = "movies")
+    @ManyToMany(mappedBy = "movies", fetch = FetchType.LAZY)
     @JsonManagedReference
     private Set<Director> directors  = new HashSet<>();
 
-    @ManyToMany(mappedBy = "movies")
+    @ManyToMany(mappedBy = "movies", fetch = FetchType.LAZY)
     @JsonManagedReference
     private Set<Actor> actors = new HashSet<>();
 
-    @ManyToMany(mappedBy = "movies")
+    @ManyToMany(mappedBy = "movies", fetch = FetchType.LAZY)
     @JsonManagedReference
     private Set<Genre> genres = new HashSet<>();
 
