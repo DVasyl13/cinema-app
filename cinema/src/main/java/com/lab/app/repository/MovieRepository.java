@@ -16,20 +16,4 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
             "left join fetch m.actors")
     List<Movie> findAll();
 
-//    // WHy doesn't it work
-//    @Query("""
-//        select new com.lab.app.dto.MovieDTO(m.id, m.description, m.duration, m.posterURL,
-//        m.rating, m.releaseDate, m.title, m.trailerURL, m.ageLimit, m.widePosterURL,
-//        m.startShowDate, m.endShowDate,
-//        (
-//            select new com.lab.app.dto.GenreDTO(g.id, g.name)
-//            from Genre g
-//            join g.movies gm
-//            where gm.id = m.id
-//        )
-//        )
-//        from Movie m
-//    """)
-//    List<MovieDTO> getAllMoviesWithGenres();
-
 }

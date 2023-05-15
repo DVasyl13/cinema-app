@@ -42,13 +42,4 @@ const getDate = (startDate,endDate, flag) => {
 
 
 
-function redirect(endpoint){
-    let paths = window.location;
-    let url = `${paths.origin}/${endpoint}`;
-    return url;
-
-//for page redirect use window.location.href = url
-}
-
-
-export {shuffle, getDate, redirect}
+export {shuffle, getDate}

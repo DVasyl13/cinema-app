@@ -38,7 +38,7 @@ public class BookingService {
         var seatSubmissionSet = bookingSubmission.seats();
         var totalPrice = seatSubmissionSet.stream().mapToDouble(SeatSubmission::price).sum();
 
-//        Get sequence first
+//      Get sequence first
         Long nextVal = (Long) entityManager
                 .createNativeQuery("SELECT nextval('cinema.booking_id_seq')")
                 .getSingleResult();
