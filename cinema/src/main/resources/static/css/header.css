@@ -56,7 +56,7 @@ header ul li{
 
 .dropdown select {
     color: #fff;
-    margin-left: 20px;
+    margin-left: 30px;
     font: bold 14px/1.4 'Open Sans', arial, sans-serif;
     text-decoration: none;
     letter-spacing: 0.15em;
@@ -143,5 +143,32 @@ a:hover:after {
 @media screen and (max-height: 300px) {
     .main-nav ul {
         margin-top: 40px;
+    }
+}
+@media (max-width: 1300px) {
+    .main-nav{
+        text-align: start;
+        width: 400px;
+    }
+    header ul{
+        margin-left:80px;
+    }
+}
+@media (max-width: 1050px) {
+    .main-nav{
+        text-align: start;
+        width: 250px;
+    }
+    header ul{
+        margin-left:40px;
+    }
+}
+@media (max-width: 850px) {
+    .main-nav{
+        text-align: start;
+        width: 250px;
+    }
+    header ul{
+        margin-left:0;
     }
 }

@@ -191,20 +191,23 @@ const initShowtimes = (data) => {
 
         const ticket = document.createElement("div");
 
-        const time = document.createElement("p");
-        time.setAttribute("class", "movie-time");
+        const date = document.createElement("p");
+        date.setAttribute("class", "movie-date");
+        date.innerHTML = getDate(e.startTime, e.endTime, 0);
         let minutes = new Date(e.startTime).getMinutes();
         let minutesStr = '' + minutes;
         if (minutes < 10) {
             minutesStr = '0' + minutes;
         }
-        time.innerHTML = getDate(e.startTime, e.endTime, 0) + ' '
-            + new Date(e.startTime).getHours() + ':' + minutesStr;
+        const time = document.createElement("p");
+        time.setAttribute("class", "movie-time");
+        time.innerHTML = new Date(e.startTime).getHours() + ':' + minutesStr;
 
         const price = document.createElement("p");
         price.setAttribute("class", "ticket-price");
-        price.innerHTML = "140";
+        price.innerHTML = "140 грн";
 
+        ticket.appendChild(date);
         ticket.appendChild(time);
         ticket.appendChild(price);
         ref.appendChild(ticket);

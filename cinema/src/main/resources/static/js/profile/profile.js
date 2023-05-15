@@ -22,9 +22,6 @@ window.onload = function () {
     initializeHeader();
     getProfileDetails();
     initializePage();
-    for (let [key, value] of changedFields) {
-        console.log(sessionStorage.getItem(key));
-    }
 }
 firstNameChangeButton.addEventListener('click', function (e) {
 
@@ -208,7 +205,7 @@ const setUserDetails = (data) => {
     document.getElementById("last-name").innerHTML = data.surname;
     document.getElementById("user-email").innerHTML = data.email;
     document.getElementById("user-password").innerHTML = sessionStorage.getItem("password");
-    document.getElementById("box-header").innerHTML = 'Вітаємо, ' + data.name;
+    document.getElementById("username-header").innerHTML = 'Вітаємо, ' + data.name;
 }
 const setTicketsDetails = (bookings) => {
     bookings.forEach(ticket => {

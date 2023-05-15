@@ -33,7 +33,6 @@ a {
     margin-top: 20px;
 }
 
-
 #image-container {
     margin: 30px 35px 0 50px;
 
@@ -60,7 +59,8 @@ a {
     z-index: 9;
 
 }
-a.trailer-button{
+
+a.trailer-button {
     width: 210px;
     height: 50px !important;
 }
@@ -80,7 +80,7 @@ a.trailer-button{
     font-size: 22px;
     position: relative;
     left: 12px;
-    bottom:5px;
+    bottom: 5px;
 }
 
 .nav-container {
@@ -146,7 +146,7 @@ a.trailer-button{
     justify-content: start;
     flex-wrap: wrap;
     gap: 2em;
-    margin: 40px 100px 100px 33%;
+    margin: 40px 100px 100px 32%;
     border-style: solid;
     border-width: 2px;
     border-radius: 50px;
@@ -173,7 +173,15 @@ a.trailer-button{
 
 .movie-time {
     font-size: 15px;
-    margin: 25px 0 0 54px;
+    margin: 8px 0 0 63px;
+    color: black;
+    font-weight: bold;
+
+}
+
+.movie-date {
+    font-size: 15px;
+    margin: 21px 0 0 47px;
     color: black;
     font-weight: bold;
 
@@ -181,8 +189,8 @@ a.trailer-button{
 
 .ticket-price {
     color: black;
-    font-size: 18px;
-    margin: 10px 0 0 56px;
+    font-size: 17px;
+    margin: 4px 0 0 55px;
 }
 
 #movie-description {
@@ -190,4 +198,21 @@ a.trailer-button{
     font-size: 19px;
     font-weight: 100;
 
+}
+
+@media (max-width: 1300px) {
+    .tickets-wrapper{
+        margin-left: 25%;
+    }
+
+}
+@media (max-width: 1050px) {
+    .tickets-wrapper{
+        margin-left: 15%;
+    }
+}
+@media (max-width: 850px) {
+    .tickets-wrapper{
+        margin-left: 5%;
+    }
 }
