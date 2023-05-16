@@ -12,7 +12,6 @@ const initializeSlider = () => {
         })
         .then(data => {
             let arrayOfMovies = shuffle(data);
-            console.log(arrayOfMovies);
             createSlider(arrayOfMovies);
         })
         .catch(error => {

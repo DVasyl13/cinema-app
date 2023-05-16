@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class ShowtimeService {
     private final ShowtimeRepository repository;
 
-    @Cacheable(keyGenerator = "myKeyGenerator")
     @Transactional(readOnly = true)
     public Showtime getShowtimeById(Long id){
         return repository.findShowtimeById(id);
@@ -33,10 +32,5 @@ public class ShowtimeService {
                 showtime.getCinemaHall().getId(),
                 showtime.getMovie().getPosterURL()
         );
-    }
-
-    @Bean
-    public KeyGenerator myKeyGenerator() {
-        return (target, method, params) -> "showtime-" + params[0];
     }
 }

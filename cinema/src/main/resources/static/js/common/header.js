@@ -97,7 +97,8 @@ const resisterNewUser = () => {
 }
 
 const createNewUser = (data) => {
-
+    console.log(data);
+    console.log(data.password);
     fetch('/auth/register', {
         method: 'POST',
         headers: {
@@ -112,7 +113,7 @@ const createNewUser = (data) => {
             return response.json();
         })
         .then(data => {
-            setUserData(data);
+            setUserData(data, data.password);
             removePopUps();
         })
         .catch(error => {

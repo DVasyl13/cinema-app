@@ -262,7 +262,7 @@ const doOrder = () => {
     }
 
     if (order.length == 0) {
-        console.log("Empty order")
+        console.log("Empty order");
         return;
     }
 
@@ -291,7 +291,7 @@ const doOrder = () => {
             console.log(data);
             initializeOccupiedSeats(order.map(e => e.seatId));
             order = [];
-            document.querySelector(".user-order").textContent = '';
+            document.querySelector(".user-ticket-order").innerHTML = '';
         })
         .catch(error => {
             console.error('Error:', error);
