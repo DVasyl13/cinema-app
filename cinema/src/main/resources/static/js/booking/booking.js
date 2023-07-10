@@ -292,6 +292,7 @@ const doOrder = () => {
             initializeOccupiedSeats(order.map(e => e.seatId));
             order = [];
             document.querySelector(".user-ticket-order").innerHTML = '';
+            totalPrice.textContent = "0";
         })
         .catch(error => {
             console.error('Error:', error);

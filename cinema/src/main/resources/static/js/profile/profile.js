@@ -204,7 +204,7 @@ const setUserDetails = (data) => {
     document.getElementById("first-name").innerHTML = data.name;
     document.getElementById("last-name").innerHTML = data.surname;
     document.getElementById("user-email").innerHTML = data.email;
-    document.getElementById("user-password").innerHTML = sessionStorage.getItem("password");
+    document.getElementById("user-password").innerHTML = "*".repeat(sessionStorage.getItem("password").length);
     document.getElementById("username-header").innerHTML = 'Вітаємо, ' + data.name;
 }
 const setTicketsDetails = (bookings) => {
